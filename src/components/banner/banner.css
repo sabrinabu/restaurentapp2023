@@ -1,0 +1,11 @@
+.banner {
+  width: 100%;
+  background-color: rgb(250,133,118);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+
+  &-heading {
+  }
+}
