@@ -24,17 +24,10 @@ export default function Slider() {
   console.log(sliderIndex);
   console.log("l:" + data.length);
 
-  let currentIndex = 0;
   useEffect(() => {
     const interval = setInterval(() => {
-      if (currentIndex >= data.length - 1) {
-        //setSliderIndex(currentIndex = 0)
-        currentIndex = 0;
-      } else currentIndex++;
-
-      setSliderIndex(currentIndex);
+      setSliderIndex((v) => (v >= data.length - 1 ? 0 : v + 1));
     }, 5000);
-
     return () => {
       clearInterval(interval);
     };
