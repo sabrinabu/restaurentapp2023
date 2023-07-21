@@ -13,7 +13,8 @@ export default function Navbar() {
         <div className="middle">MASSIMO</div>
         <div className="right">
           <div className="rightone">
-            <BsTelephone size={15} /> 456 78
+            <BsTelephone size={17} color="grey" />
+            <span>178 456 78</span>
           </div>
           <div className="righttwo">LOGIN</div>
           <div className="rightthree">ORDERS</div>
