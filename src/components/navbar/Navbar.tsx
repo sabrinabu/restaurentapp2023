@@ -1,4 +1,5 @@
 import "./navbar.scss";
+import { BsTelephone } from "react-icons/bs";
 
 export default function Navbar() {
   return (
@@ -11,7 +12,9 @@ export default function Navbar() {
         </div>
         <div className="middle">MASSIMO</div>
         <div className="right">
-          <div className="rightone">123 456 78</div>
+          <div className="rightone">
+            <BsTelephone size={15} /> 456 78
+          </div>
           <div className="righttwo">LOGIN</div>
           <div className="rightthree">ORDERS</div>
           <div className="rightfour">CART(3)</div>
