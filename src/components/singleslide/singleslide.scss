@@ -1,0 +1,30 @@
+.singleslide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  color:  rgb(248, 91, 52);;
+
+  .img {
+    width: 500px;
+    padding: 20px;
+  }
+  .title {
+    font-size: larger;
+    font-weight: 600;
+    padding: 20px;
+  }
+
+  .deccription {
+    white-space: initial;
+    padding: 20px;
+  }
+
+  .price {
+    padding: 20px;
+  }
+  .button {
+    background-color: rgb(248, 91, 52);;
+  }
+}
