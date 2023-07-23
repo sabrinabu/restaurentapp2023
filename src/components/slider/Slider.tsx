@@ -21,8 +21,6 @@ export default function Slider() {
   ];
 
   const [sliderIndex, setSliderIndex] = useState(0);
-  console.log(sliderIndex);
-  console.log("l:" + data.length);
 
   useEffect(() => {
     const interval = setInterval(() => {
