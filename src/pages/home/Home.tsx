@@ -1,4 +1,5 @@
 import Banner from "../../components/banner/Banner";
+import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import Offerproduct from "../../components/offerproduct/Offerproduct";
 import Scrollableslider from "../../components/scrollableslider/Scrollableslider";
@@ -14,6 +15,7 @@ export default function Home() {
         <Slider/>
         <Scrollableslider/>
         <Offerproduct/>
+        <Footer/>
       </>
     </div>
   );
