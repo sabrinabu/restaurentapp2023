@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
 
@@ -7,7 +8,11 @@ export default function Navbar() {
       <div className="container">
         <div className="left">
           <div className="leftone">HOMEPAGE</div>
-          <div className="lefttwo">MENU</div>
+
+          <Link className="lefttwo" to="/menu">
+            MENU
+          </Link>
+
           <div className="leftthree">CONTACT</div>
         </div>
         <div className="middle">MASSIMO</div>

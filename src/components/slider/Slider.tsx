@@ -29,7 +29,7 @@ export default function Slider() {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [data.length]);
 
   return (
     <div className="slider">

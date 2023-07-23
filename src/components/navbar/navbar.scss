@@ -1,6 +1,5 @@
 .navbar {
   width: 100%;
-  border: 2px solid rgb(207, 76, 59);
 
   .container {
     padding: 20px 0 20px 0;
@@ -14,14 +13,21 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
-      border: 1px solid;
       flex-wrap: wrap;
       color: rgb(248, 91, 52);
 
       .leftone {
       }
       .lefttwo {
+        text-decoration: none;
+        color: rgb(248, 91, 52);
+        &:hover {
+          padding: 5px;
+          background-color: #f0508d;
+          color: rgb(238, 238, 238);
+        }
       }
+
       .leftthree {
       }
     }
