@@ -1,0 +1,59 @@
+.singlemenu {
+  display: flex;
+  position: relative;
+  .img {
+    width: 310px;
+    z-index: 1;
+  }
+  .textDiv {
+    z-index: 4;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 10px;
+    right: 100px;
+
+    .title {
+      font-size: 30px;
+      font-weight: 600;
+      padding: 10px;
+      color: white;
+    }
+    .titleblack {
+      font-size: 30px;
+      font-weight: 600;
+      padding: 10px;
+      color: black;
+    }
+    .desc {
+      font-size: small;
+      padding: 10px;
+      color: white;
+    }
+    .descblack {
+      font-size: small;
+      padding: 10px;
+      color: black;
+    }
+
+    .button {
+      margin: 30px 0 0 10px;
+      padding: 5px;
+      width: 80px;
+      cursor: pointer;
+      border-style: none;
+      background-color: rgb(248, 91, 52);
+    }
+
+    .buttonblack {
+      margin: 30px 0 0 10px;
+      padding: 5px;
+      width: 80px;
+      cursor: pointer;
+      border-style: none;
+      background-color: black;
+      color: white;
+    }
+  }
+}
