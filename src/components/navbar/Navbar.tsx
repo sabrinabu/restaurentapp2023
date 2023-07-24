@@ -23,9 +23,11 @@ export default function Navbar() {
             <BsTelephone size={17} color="grey" />
             <span>178 456 78</span>
           </div>
-          <div className="righttwo">LOGIN</div>
-          <div className="rightthree">ORDERS</div>
-          <div className="rightfour">CART(3)</div>
+          <div className="rightMenu">LOGIN</div>
+          <div className="rightMenu">ORDERS</div>
+          <Link to="/cart" className="rightMenu">
+            CART(3)
+          </Link>
         </div>
       </div>
     </div>

@@ -1,0 +1,21 @@
+.cart {
+  .wrapper {
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    .parent {
+      flex: 1;
+      border: 1px solid;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .center {
+        height: 70%;
+        width: 70%;
+        border: 1px solid;
+        overflow: auto;
+      }
+    }
+  }
+}
