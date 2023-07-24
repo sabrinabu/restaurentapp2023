@@ -7,13 +7,15 @@ export default function Navbar() {
     <div className="navbar">
       <div className="container">
         <div className="left">
-          <div className="leftone">HOMEPAGE</div>
-
-          <Link className="lefttwo" to="/menu">
+          <Link to="/" className="lefMenu">
+            HOMEPAGE
+          </Link>
+          <Link className="lefMenu" to="/menu">
             MENU
           </Link>
-
-          <div className="leftthree">CONTACT</div>
+          <Link to="/" className="lefMenu">
+            CONTACT
+          </Link>
         </div>
         <div className="middle">MASSIMO</div>
         <div className="right">

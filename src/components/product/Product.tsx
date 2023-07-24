@@ -1,8 +1,14 @@
 import { useState } from "react";
 import "./product.scss";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../redux/cartRedux";
 
 export default function Product({ product }) {
   const [showButton, setShowButton] = useState(false);
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(addProduct({ ...product, quantity: 1 }));
+  };
 
   return (
     <div
@@ -10,10 +16,10 @@ export default function Product({ product }) {
       style={{
         backgroundColor: product.id % 2 ? "rgb(248, 246, 244)" : "",
       }}
-      onMouseEnter={(e) => {
+      onMouseEnter={() => {
         setShowButton(true);
       }}
-      onMouseLeave={(e) => {
+      onMouseLeave={() => {
         setShowButton(false);
       }}
     >
@@ -21,7 +27,7 @@ export default function Product({ product }) {
       <div className="lowerblock">
         <span className="name">{product.title}</span>
         {showButton ? (
-          <button>Add to Cart</button>
+          <button onClick={() => handleClick()}>Add to Cart</button>
         ) : (
           <span className="price">{product.price}€</span>
         )}
