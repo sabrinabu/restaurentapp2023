@@ -4,6 +4,7 @@ import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import { pastas, pizzas, burgers } from "../../data";
 import "./products.scss";
+import Product from "../../components/product/Product";
 
 export default function Category() {
   const location = useLocation();
@@ -22,18 +23,7 @@ export default function Category() {
       <Navbar />
       <div className="wrapper">
         {products?.map((product) => (
-          <div
-            className="product"
-            style={{
-              backgroundColor: product.id % 2 ? "rgb(248, 246, 244)" : "",
-            }}
-          >
-            <img className="img" src={product.img} />
-            <div className="lowerblock">
-              <span className="name">{product.title}</span>
-              <span className="price">{product.price}€</span>
-            </div>
-          </div>
+          <Product product={product} key={product.id} />
         ))}
       </div>
       <Footer />
