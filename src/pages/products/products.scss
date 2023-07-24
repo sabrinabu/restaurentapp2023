@@ -1,0 +1,28 @@
+.category {
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid red;
+      padding: 10px;
+      .img {
+        width: 390px;
+      }
+      .lowerblock {
+        display: flex;
+        justify-content: space-between;
+
+        .name {
+          font-size: larger;
+          font-weight: 600;
+        }
+        .price {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

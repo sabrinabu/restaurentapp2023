@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
 import "./singlemenu.scss";
 
 export default function Singlemenu({ data }) {
+  const getRoutingLink = () => {
+    return "/menu/" + data.slug;
+  };
   console.log(data);
   return (
     <div className="singlemenu">
@@ -14,11 +18,15 @@ export default function Singlemenu({ data }) {
         <span className={data.title === "Juicy Burgers" ? "descblack" : "desc"}>
           {data.desc}
         </span>
-        <button
-          className={data.title === "Juicy Burgers" ? "buttonblack" : "button"}
-        >
-          Explore
-        </button>
+        <Link to={getRoutingLink()}>
+          <button
+            className={
+              data.title === "Juicy Burgers" ? "buttonblack" : "button"
+            }
+          >
+            Explore
+          </button>
+        </Link>
       </div>
     </div>
   );
