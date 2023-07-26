@@ -26,7 +26,10 @@ export default function Navbar() {
             <span>178 456 78</span>
           </div>
           <div className="rightMenu">LOGIN</div>
-          <div className="rightMenu">ORDERS</div>
+          <Link to="/orders" className="rightMenu">
+            ORDERS
+          </Link>
+
           <Link to="/cart" className="rightMenu">
             CART({cart.products.length})
           </Link>

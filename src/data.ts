@@ -50,6 +50,34 @@ export const orders: Orders = [
     desc: "Sicilian Pasta",
     status: "delivered",
   },
+  {
+    id: 7,
+    date: "03.03.2023",
+    price: 654,
+    desc: "Sicilian Pasta",
+    status: "delivered",
+  },
+  {
+    id: 8,
+    date: "03.03.2023",
+    price: 654,
+    desc: "Sicilian Pasta",
+    status: "delivered",
+  },
+  {
+    id: 9,
+    date: "03.03.2023",
+    price: 654,
+    desc: "Sicilian Pasta",
+    status: "delivered",
+  },
+  {
+    id: 10,
+    date: "03.03.2023",
+    price: 654,
+    desc: "Sicilian Pasta",
+    status: "delivered",
+  },
 ];
 
 type Product = {

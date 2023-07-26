@@ -23,7 +23,7 @@ export default function Orders() {
             rowtype={"headlines"}
           />
           {orders.map((item) => (
-            <Order item={item} rowtype={"row"} />
+            <Order item={item} rowtype={"row"} key={item.id} />
           ))}
         </div>
       </div>
