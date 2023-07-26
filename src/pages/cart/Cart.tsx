@@ -22,7 +22,35 @@ export default function Cart() {
           </div>
         </div>
         <div className="parent">
-          <div className="center"></div>
+          <div className="center">
+            <div className="checkout">
+              <div className="row">
+                <span className="text">
+                  Subtotal ({cart.totalquantity} items)
+                </span>
+                <span className="text">{cart.total}€</span>
+              </div>
+              <div className="row">
+                <span className="text">Service cost</span>
+                <span className="text">20€</span>
+              </div>
+              <div className="row">
+                <span className="text">Delivery cost</span>
+                <span className="text" style={{ color: "green" }}>
+                  Free!
+                </span>
+              </div>
+              <div className="row" style={{ padding: "50px 20px" }}>
+                <span className="text" style={{ fontSize: "25px" }}>
+                  Total cost
+                </span>
+                <span className="text" style={{ fontWeight: 600 }}>
+                  {cart.total + 20}€
+                </span>
+              </div>
+              <button className="checkoutbtn">Checkout</button>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
