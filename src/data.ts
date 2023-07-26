@@ -1,3 +1,57 @@
+type Order = {
+  id: number;
+  date: string;
+  price: number;
+  desc?: string;
+  status?: string;
+};
+type Orders = Order[];
+
+export const orders: Orders = [
+  {
+    id: 1,
+    date: "03.08.2023",
+    price: 30,
+    desc: "Sicilian Pizza",
+    status: "delivered",
+  },
+  {
+    id: 2,
+    date: "23.08.2023",
+    price: 60,
+    desc: "Pasta Sicilian",
+    status: "delivered",
+  },
+  {
+    id: 3,
+    date: "03.09.2023",
+    price: 50,
+    desc: "Burger Sicilian ",
+    status: "delivered",
+  },
+  {
+    id: 4,
+    date: "03.08.2023",
+    price: 39,
+    desc: "Italian Pizza",
+    status: "ready for delivery",
+  },
+  {
+    id: 5,
+    date: "03.12.2023",
+    price: 256,
+    desc: "Walton Pizza",
+    status: "delivered",
+  },
+  {
+    id: 6,
+    date: "03.03.2023",
+    price: 654,
+    desc: "Sicilian Pasta",
+    status: "delivered",
+  },
+];
+
 type Product = {
   id: number;
   title: string;

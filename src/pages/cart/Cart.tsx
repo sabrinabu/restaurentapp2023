@@ -7,7 +7,11 @@ import { useSelector } from "react-redux";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
-  //console.log(cart);
+  const handleClick = () => {
+    alert(
+      "Checkout will be implemented soon, until then you can get everything for free. Happy?"
+    );
+  };
 
   return (
     <div className="cart">
@@ -48,7 +52,9 @@ export default function Cart() {
                   {cart.total + 20}€
                 </span>
               </div>
-              <button className="checkoutbtn">Checkout</button>
+              <button className="checkoutbtn" onClick={() => handleClick()}>
+                Checkout
+              </button>
             </div>
           </div>
         </div>

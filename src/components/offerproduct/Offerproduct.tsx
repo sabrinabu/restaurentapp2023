@@ -3,7 +3,7 @@ import "./offerproduct.scss";
 
 export default function Offerproduct() {
   const { days, hours, minutes, seconds } = useTimer(
-    "2023-07-25T22:30:00.000Z"
+    "2023-08-25T22:30:00.000Z"
   );
   return (
     <div className="offerproduct">
