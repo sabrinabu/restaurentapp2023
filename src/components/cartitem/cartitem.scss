@@ -1,30 +1,35 @@
 .cartitem {
   display: flex;
-  padding:10px;
+  padding: 10px;
 
   .img {
-    flex:1;
+    flex: 1;
     width: 50px;
-    padding:10px;
+    height: 50px;
+    object-fit: cover;
+    padding: 10px;
   }
   .titlesize {
-    flex:2;
+    flex: 6;
     display: flex;
     flex-direction: column;
     .title {
-        padding:10px;
+      padding: 10px;
     }
     .size {
-        padding:10px;
+      padding: 10px;
     }
   }
   .price {
-    flex:1;
-    padding:10px;
+    flex: 1;
+    padding: 10px;
+  }
+  .qty {
+    flex: 1;
+    padding: 10px;
   }
   .deletebtn {
-    flex:1;
+    flex: 1;
     height: 40px;
-    
   }
 }

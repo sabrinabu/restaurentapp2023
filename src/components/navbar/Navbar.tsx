@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
+  const cart = useSelector((state) => state.cart);
   return (
     <div className="navbar">
       <div className="container">
         <div className="left">
           <Link to="/" className="lefMenu">
-            HOMEPAGE
+            HOME
           </Link>
           <Link className="lefMenu" to="/menu">
             MENU
@@ -26,7 +28,7 @@ export default function Navbar() {
           <div className="rightMenu">LOGIN</div>
           <div className="rightMenu">ORDERS</div>
           <Link to="/cart" className="rightMenu">
-            CART(3)
+            CART({cart.products.length})
           </Link>
         </div>
       </div>

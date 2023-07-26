@@ -1,6 +1,6 @@
 .cart {
   .wrapper {
-    height: 100vh;
+    height: 70vh;
     display: flex;
     flex-wrap: wrap;
     .parent {
@@ -11,7 +11,7 @@
       align-items: center;
 
       .center {
-        height: 70%;
+        height: 410px;
         width: 70%;
         border: 1px solid;
         overflow: auto;

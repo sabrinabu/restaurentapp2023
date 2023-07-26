@@ -7,7 +7,16 @@ export default function Product({ product }) {
   const [showButton, setShowButton] = useState(false);
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(addProduct({ ...product, quantity: 1 }));
+    dispatch(
+      addProduct({
+        id: product.id,
+        title: product.title,
+        img: product.img,
+        price: product.price,
+        size: "S",
+        qty: 1,
+      })
+    );
   };
 
   return (
