@@ -4,6 +4,7 @@ import Menu from "./pages/menu/Menu";
 import Category from "./pages/products/Products";
 import Cart from "./pages/cart/Cart";
 import Orders from "./pages/orders/Orders";
+import { Login } from "./pages/login/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/menu/:category" element={<Category />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>

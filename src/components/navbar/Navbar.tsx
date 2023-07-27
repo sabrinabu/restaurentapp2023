@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Navbar() {
   const cart = useSelector((state) => state.cart);
+  const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
   return (
     <div className="navbar">
       <div className="container">
@@ -25,7 +27,19 @@ export default function Navbar() {
             <BsTelephone size={17} color="grey" />
             <span>178 456 78</span>
           </div>
-          <div className="rightMenu">LOGIN</div>
+          <div className="rightMenu">
+            {isAuthenticated ? (
+              <div
+                onClick={() =>
+                  logout({ logoutParams: { returnTo: window.location.origin } })
+                }
+              >
+                Hello {user?.name}, LOGOUT?
+              </div>
+            ) : (
+              <div onClick={() => loginWithRedirect()}>LOGIN</div>
+            )}
+          </div>
           <Link to="/orders" className="rightMenu">
             ORDERS
           </Link>
