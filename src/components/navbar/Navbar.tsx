@@ -3,10 +3,21 @@ import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useState } from "react";
 
 export default function Navbar() {
   const cart = useSelector((state) => state.cart);
-  const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, logout, user, isAuthenticated, getIdTokenClaims } =
+    useAuth0();
+  const [role, setRole] = useState("");
+
+  async function getToken() {
+    return await getIdTokenClaims().then((result) => {
+      return result;
+    });
+  }
+  getToken().then((result) => setRole(result?.["user/role"][0]));
+
   return (
     <div className="navbar">
       <div className="container">
@@ -34,7 +45,7 @@ export default function Navbar() {
                   logout({ logoutParams: { returnTo: window.location.origin } })
                 }
               >
-                Hello {user?.name}, LOGOUT?
+                Hello {user?.name}, {role}, LOGOUT?
               </div>
             ) : (
               <div onClick={() => loginWithRedirect()}>LOGIN</div>
