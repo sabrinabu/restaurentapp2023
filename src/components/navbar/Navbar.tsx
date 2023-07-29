@@ -51,10 +51,11 @@ export default function Navbar() {
               ORDERS
             </Link>
           )}
-
-          <Link to="/cart" className="rightMenu">
-            CART({cart.products.length})
-          </Link>
+          {cart.products.length > 0 && (
+            <Link to="/cart" className="rightMenu">
+              CART({cart.products.length})
+            </Link>
+          )}
         </div>
       </div>
     </div>
