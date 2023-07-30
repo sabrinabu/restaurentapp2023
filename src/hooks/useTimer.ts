@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 
-export default function useTimer(offerClosingTime: string) {
+type TimerData = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+export default function useTimer(offerClosingTime: string): TimerData {
   const dateP: Date = new Date();
-  const [diff, setDiff] = useState(
+  const [diff, setDiff] = useState<number>(
     Date.parse(offerClosingTime) - dateP.getTime()
   );
 

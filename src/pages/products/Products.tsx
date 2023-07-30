@@ -9,8 +9,9 @@ import Product from "../../components/product/Product";
 export default function Category() {
   const location = useLocation();
   const producttype = location.pathname.split("/")[2];
+
   // we will implement it to lazy load later
-  const getCategory = (productType) => {
+  const getCategory = (productType: string) => {
     if (productType === "pastas") return pastas;
     else if (productType === "pizzas") return pizzas;
     else if (productType === "burgers") return burgers;

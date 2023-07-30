@@ -1,11 +1,11 @@
-type Order = {
-  id: number;
+export type OrderItem = {
+  id: number | string;
   date: string;
-  price: number;
+  price: number | string;
   desc?: string;
   status?: string;
 };
-type Orders = Order[];
+type Orders = OrderItem[];
 
 export const orders: Orders = [
   {

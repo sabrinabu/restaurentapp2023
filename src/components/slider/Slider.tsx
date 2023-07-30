@@ -2,7 +2,13 @@ import "./slider.scss";
 import { useState, useEffect } from "react";
 
 export default function Slider() {
-  const data = [
+  type SlidingData = {
+    id: number;
+    title: string;
+    image: string;
+  };
+
+  const data: SlidingData[] = [
     {
       id: 1,
       title: "always fresh & always crispy & always hot",
@@ -20,7 +26,7 @@ export default function Slider() {
     },
   ];
 
-  const [sliderIndex, setSliderIndex] = useState(0);
+  const [sliderIndex, setSliderIndex] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {

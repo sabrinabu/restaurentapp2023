@@ -1,10 +1,21 @@
 import { useDispatch } from "react-redux";
-import { removeProduct, reset } from "../../redux/cartRedux";
+import { removeProduct } from "../../redux/cartRedux";
 import "./cartitem.scss";
 
-export default function Cartitem({ product }) {
+export type Product = {
+  product: {
+    id: number;
+    img: string;
+    title: string;
+    size: string;
+    price: number;
+    qty: number;
+  };
+};
+
+export default function Cartitem({ product }: Product) {
   const dispatch = useDispatch();
-  const handleClick = (id) => {
+  const handleClick = (id: number) => {
     dispatch(removeProduct({ id }));
   };
 
