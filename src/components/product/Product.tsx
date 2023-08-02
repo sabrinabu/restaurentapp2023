@@ -2,8 +2,13 @@ import { useState } from "react";
 import "./product.scss";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartRedux";
+import { Product as ProductP } from "../../data";
 
-export default function Product({ product }) {
+type productprops = {
+  product: ProductP;
+};
+
+export default function Product({ product }: productprops) {
   const [showButton, setShowButton] = useState(false);
   const dispatch = useDispatch();
   const handleClick = () => {

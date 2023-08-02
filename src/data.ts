@@ -80,7 +80,7 @@ export const orders: Orders = [
   },
 ];
 
-type Product = {
+export type Product = {
   id: number;
   title: string;
   desc?: string;

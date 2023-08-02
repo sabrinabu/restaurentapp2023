@@ -21,7 +21,7 @@ export type UserInfo = {
   sid: string | undefined;
 };
 
-export type InitialState = {
+type InitialState = {
   user: UserInfo;
 };
 

@@ -1,15 +1,31 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-// we will develop typescript based enum later on
+type CartProduct = {
+  id: number;
+  title: string;
+  img?: string;
+  price: number;
+  size: string;
+  qty: number;
+};
+
+type InitialState = {
+  products: CartProduct[];
+  totalquantity: number;
+  total: number;
+};
+
+const initialState: InitialState = {
+  products: [],
+  totalquantity: 0,
+  total: 0,
+};
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    products: [],
-    totalquantity: 0,
-    total: 0,
-  },
+  initialState,
   reducers: {
-    addProduct: (state, action) => {
+    addProduct: (state, action: PayloadAction<CartProduct>) => {
       const exist = state.products.find((x) => x.id === action.payload.id);
       if (exist) {
         state.products = state.products.map((x) =>
@@ -22,10 +38,12 @@ const cartSlice = createSlice({
       state.totalquantity += 1;
       state.total += action.payload.price * action.payload.qty;
     },
-    removeProduct: (state, action) => {
+    removeProduct: (state, action: PayloadAction<{ id: number }>) => {
       state.products = state.products.filter((product) => {
         return product.id != action.payload.id;
       });
+      //state.totalquantity -= 1;
+      //state.total -= action.payload.price * action.payload.qty;
     },
     adjustQuantities: (state, action) => {},
     reset: (state) => {
