@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
-import { useSelector, useDispatch } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
-import { fetchUser } from "../../redux/userRedux";
+import { useAppSelector } from "../../redux/reduxHook";
 
 export default function Navbar() {
-  const cart = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.user);
+  const cart = useAppSelector((state) => state.cart);
+  const user = useAppSelector((state) => state.userR.user);
   console.log(user);
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-  const dispatch = useDispatch();
-  dispatch(fetchUser());
 
   return (
     <div className="navbar">
@@ -40,13 +37,13 @@ export default function Navbar() {
                   logout({ logoutParams: { returnTo: window.location.origin } })
                 }
               >
-                Hello {user.users?.nickname}, LOGOUT?
+                Hello {user?.nickname}, LOGOUT?
               </div>
             ) : (
               <div onClick={() => loginWithRedirect()}>LOGIN</div>
             )}
           </div>
-          {user.users?.["user/role"][0] == "admin" && (
+          {user.role == "admin" && (
             <Link to="/orders" className="rightMenu">
               ORDERS
             </Link>

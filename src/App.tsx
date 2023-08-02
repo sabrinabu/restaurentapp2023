@@ -5,8 +5,13 @@ import Category from "./pages/products/Products";
 import Cart from "./pages/cart/Cart";
 import Orders from "./pages/orders/Orders";
 import { Login } from "./pages/login/Login";
+import { fetchUser } from "./redux/userRedux.ts";
+import { useAppDispatch } from "./redux/reduxHook.ts";
 
 function App() {
+  const dispatch = useAppDispatch();
+  dispatch(fetchUser());
+
   return (
     <>
       <BrowserRouter>
