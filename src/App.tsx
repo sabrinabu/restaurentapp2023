@@ -6,7 +6,7 @@ import Cart from "./pages/cart/Cart";
 import Orders from "./pages/orders/Orders";
 import { Login } from "./pages/login/Login";
 import { fetchUser } from "./redux/userRedux.ts";
-import { useAppDispatch } from "./redux/reduxHook.ts";
+import { useAppDispatch } from "./redux/store.ts";
 
 function App() {
   const dispatch = useAppDispatch();

@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useAppSelector } from "../../redux/reduxHook";
+import { useAppSelector } from "../../redux/store";
 
 export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.userR.user);
-  console.log(user);
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   return (
