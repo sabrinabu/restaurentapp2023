@@ -2,11 +2,11 @@ import Banner from "../../components/banner/Banner";
 import Cartitem from "../../components/cartitem/Cartitem";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
+import { useAppSelector } from "../../redux/store";
 import "./cart.scss";
-import { useSelector } from "react-redux";
 
 export default function Cart() {
-  const cart = useSelector((state) => state.cart);
+  const cart = useAppSelector((state) => state.cart);
   const handleClick = () => {
     alert(
       "Checkout will be implemented soon, until then you can get everything for free. Happy?"
@@ -20,8 +20,8 @@ export default function Cart() {
       <div className="wrapper">
         <div className="parent">
           <div className="center">
-            {cart.products.map((product) => (
-              <Cartitem product={product} key={product.id} />
+            {cart.products.map((cardProduct) => (
+              <Cartitem cartProduct={cardProduct} key={cardProduct.id} />
             ))}
           </div>
         </div>

@@ -1,19 +1,12 @@
 import { useDispatch } from "react-redux";
-import { removeProduct } from "../../redux/cartRedux";
+import { CartProduct, removeProduct } from "../../redux/cartRedux";
 import "./cartitem.scss";
 
-export type Product = {
-  product: {
-    id: number;
-    img: string;
-    title: string;
-    size: string;
-    price: number;
-    qty: number;
-  };
+type cartItemProps = {
+  cartProduct: CartProduct;
 };
 
-export default function Cartitem({ product }: Product) {
+export default function Cartitem({ cartProduct }: cartItemProps) {
   const dispatch = useDispatch();
   const handleClick = (id: number) => {
     dispatch(removeProduct({ id }));
@@ -21,14 +14,14 @@ export default function Cartitem({ product }: Product) {
 
   return (
     <div className="cartitem">
-      <img className="img" src={product.img} />
+      <img className="img" src={cartProduct.img} />
       <div className="titlesize">
-        <span className="title">{product.title}</span>
-        <span className="size">{product.size}</span>
+        <span className="title">{cartProduct.title}</span>
+        <span className="size">{cartProduct.size}</span>
       </div>
-      <span className="price">{product.price}€</span>
-      <span className="qty">{product.qty}</span>
-      <button className="deletebtn" onClick={() => handleClick(product.id)}>
+      <span className="price">{cartProduct.price}€</span>
+      <span className="qty">{cartProduct.qty}</span>
+      <button className="deletebtn" onClick={() => handleClick(cartProduct.id)}>
         x
       </button>
     </div>

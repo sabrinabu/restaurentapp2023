@@ -1,6 +1,11 @@
+import { Product } from "../../data";
 import "./singleslide.scss";
 
-export default function Singleslide({ item }) {
+type singleSlideProps = {
+  item: Product;
+};
+
+export default function Singleslide({ item }: singleSlideProps) {
   return (
     <div className="singleslide">
       <img src={item.img} className="img" />

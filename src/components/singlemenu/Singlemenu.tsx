@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./singlemenu.scss";
+import { Menu } from "../../data";
 
-export default function Singlemenu({ data }) {
+type singleMenu = {
+  data: Menu;
+};
+
+export default function Singlemenu({ data }: singleMenu) {
   const getRoutingLink = () => {
     return "/menu/" + data.slug;
   };
