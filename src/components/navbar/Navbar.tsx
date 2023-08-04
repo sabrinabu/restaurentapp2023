@@ -23,7 +23,7 @@ export default function Navbar() {
             CONTACT
           </Link>
         </div>
-        <div className="middle">MASSIMO</div>
+        <div className="middle">RESTAURENT</div>
         <div className="right">
           <div className="rightone">
             <BsTelephone size={17} color="grey" />

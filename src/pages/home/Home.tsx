@@ -9,14 +9,12 @@ import "./home.scss";
 export default function Home() {
   return (
     <div className="home">
-      <>
-        <Banner />
-        <Navbar />
-        <Slider/>
-        <Scrollableslider/>
-        <Offerproduct/>
-        <Footer/>
-      </>
+      <Banner />
+      <Navbar />
+      <Slider />
+      <Scrollableslider />
+      <Offerproduct />
+      <Footer />
     </div>
   );
 }
