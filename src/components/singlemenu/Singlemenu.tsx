@@ -10,7 +10,7 @@ export default function Singlemenu({ data }: singleMenu) {
   const getRoutingLink = () => {
     return "/menu/" + data.slug;
   };
-  console.log(data);
+
   return (
     <div className="singlemenu">
       <img className="img" src={data.img} />

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="bHuYocwW-ojT8QTPDphI">
-        <mxGraphModel dx="569" dy="660" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="866" dy="455" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -16,7 +16,7 @@
                 <mxCell id="hh8J1OoC_zAwZTJa-RJf-4" value="Sub-Components" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="3" y="404" width="80" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="hh8J1OoC_zAwZTJa-RJf-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="hh8J1OoC_zAwZTJa-RJf-5" target="hh8J1OoC_zAwZTJa-RJf-29" edge="1">
+                <mxCell id="5" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="hh8J1OoC_zAwZTJa-RJf-5" target="hh8J1OoC_zAwZTJa-RJf-29">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="hh8J1OoC_zAwZTJa-RJf-5" value="cart" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
@@ -84,7 +84,7 @@
                 <mxCell id="hh8J1OoC_zAwZTJa-RJf-22" value="{ menu }&lt;br&gt;singlemenu" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="183.5" y="407" width="80" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="hh8J1OoC_zAwZTJa-RJf-23" target="hh8J1OoC_zAwZTJa-RJf-22">
+                <mxCell id="2" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="hh8J1OoC_zAwZTJa-RJf-23" target="hh8J1OoC_zAwZTJa-RJf-22" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="hh8J1OoC_zAwZTJa-RJf-23" value="menus" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -95,6 +95,9 @@
                 </mxCell>
                 <mxCell id="hh8J1OoC_zAwZTJa-RJf-28" value="{ item }&lt;br&gt;singleslide" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="82" y="407" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="hh8J1OoC_zAwZTJa-RJf-29" target="hh8J1OoC_zAwZTJa-RJf-15">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="hh8J1OoC_zAwZTJa-RJf-29" value="CartSlice" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="604" y="149" width="100" height="50" as="geometry"/>

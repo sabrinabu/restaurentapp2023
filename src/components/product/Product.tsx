@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./product.scss";
-import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartRedux";
 import { Product as ProductP } from "../../data";
+import { useAppDispatch } from "../../redux/store";
 
 type productprops = {
   product: ProductP;
@@ -10,7 +10,7 @@ type productprops = {
 
 export default function Product({ product }: productprops) {
   const [showButton, setShowButton] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleClick = () => {
     dispatch(
       addProduct({
