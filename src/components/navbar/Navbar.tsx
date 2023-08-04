@@ -3,14 +3,27 @@ import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppSelector } from "../../redux/store";
+import { useState } from "react";
 
 export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.userR.user);
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const [fix, setFix]=useState<boolean>(false);
+
+  const setFixed=()=>{
+    if(window.scrollY >=330){
+      setFix(true)
+
+    }else{
+      setFix(false)
+    }
+  }
+
+  window.addEventListener("scroll", setFixed)
 
   return (
-    <div className="navbar">
+    <div className={fix? "nav":"navbar"}>
       <div className="container">
         <div className="left">
           <Link to="/" className="lefMenu">

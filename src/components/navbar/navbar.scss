@@ -1,12 +1,86 @@
 .navbar {
   width: 100%;
 
+
+
   .container {
     padding: 20px 0 20px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+   
+
+    .left {
+      flex: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      color: rgb(248, 91, 52);
+
+      .lefMenu {
+        text-decoration: none;
+        color: rgb(248, 91, 52);
+        padding: 5px;
+        &:hover {
+          background-color: #91b9e7;
+          color: rgb(238, 238, 238);
+        }
+      }
+    }
+
+    .middle {
+      flex: 2;
+      text-align: center;
+      font-size: 25px;
+      font-weight: 600;
+      color: rgb(248, 91, 52);
+    }
+
+    .right {
+      flex: 4;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      color: rgb(248, 91, 52);
+
+      .rightone {
+        background-color: rgb(247, 200, 114);
+        padding: 3px;
+        border-radius: 15%;
+        display: flex;
+        gap: 5px;
+      }
+      .rightMenu {
+        text-decoration: none;
+        color: rgb(248, 91, 52);
+        padding: 5px;
+        &:hover {
+          background-color: #91b9e7;
+          color: rgb(238, 238, 238);
+        }
+      }
+    }
+  }
+}
+
+.nav{
+  position: fixed;
+  top: 0;
+  background-color:rgb(241, 221, 218);
+  width: 100%;
+  z-index: 2;
+  
+
+  .container {
+    padding: 20px 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+   
 
     .left {
       flex: 3;
