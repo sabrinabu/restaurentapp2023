@@ -1,7 +1,7 @@
 .product {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  border: 1px solid rgb(131, 124, 124);
   padding: 10px;
   .img {
     width: 390px;
@@ -11,11 +11,23 @@
     justify-content: space-between;
 
     .name {
+      flex: 3;
       font-size: larger;
       font-weight: 600;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
     .price {
+      flex: 1;
       font-weight: 500;
+    }
+    .addToCardBtn {
+      flex: 1;
+      width: 50px;
+      background-color: rgb(248, 91, 52);
+      color: white;
+      border-style: none;
     }
   }
 }

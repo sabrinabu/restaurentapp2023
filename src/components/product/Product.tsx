@@ -41,7 +41,9 @@ export default function Product({ product }: productprops) {
       <div className="lowerblock">
         <span className="name">{product.title}</span>
         {showButton ? (
-          <button onClick={() => handleClick()}>Add to Cart</button>
+          <button className="addToCardBtn" onClick={() => handleClick()}>
+            Add to Cart
+          </button>
         ) : (
           <span className="price">{product.price}€</span>
         )}
