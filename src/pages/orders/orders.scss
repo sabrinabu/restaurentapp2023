@@ -1,14 +1,14 @@
 .orders {
   min-height: 100vh;
+
   .wrapper {
     height: 70vh;
-    border: 1px solid;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
 
     .innerwrapper {
-      width: 80%;
-      border: 1px solid;
+      width: 90%;
       overflow: auto;
     }
   }

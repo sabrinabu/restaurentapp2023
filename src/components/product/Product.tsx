@@ -23,10 +23,9 @@ export default function Product({ product }: productprops) {
     dispatch(addProduct(cartProduct));
   };
 
-  const randomEnumValue = (enumeration: typeof Size) => {
-    const values = Object.keys(Size);
-    const random = Math.floor(Math.random() * values.length);
-    return enumeration[random];
+  const randomEnumValue = (sizes: typeof Size) => {
+    const random = Math.floor(Math.random() * 5);
+    return sizes[random];
   };
 
   return (

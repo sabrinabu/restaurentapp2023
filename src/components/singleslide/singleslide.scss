@@ -5,7 +5,7 @@
   align-items: center;
   border: 1px solid;
   color: rgb(248, 91, 52);
-  &:hover{
+  &:hover {
     background-color: rgb(235, 223, 214);
   }
 
@@ -48,6 +48,7 @@
   }
   .button {
     background-color: rgb(248, 91, 52);
+    cursor: pointer;
   }
 }
 
