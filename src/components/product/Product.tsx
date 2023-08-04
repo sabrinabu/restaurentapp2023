@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./product.scss";
-import { addProduct } from "../../redux/cartRedux";
+import { CartProduct, Size, addProduct } from "../../redux/cartRedux";
 import { Product as ProductP } from "../../data";
 import { useAppDispatch } from "../../redux/store";
 
@@ -12,16 +12,21 @@ export default function Product({ product }: productprops) {
   const [showButton, setShowButton] = useState(false);
   const dispatch = useAppDispatch();
   const handleClick = () => {
-    dispatch(
-      addProduct({
-        id: product.id,
-        title: product.title,
-        img: product.img,
-        price: product.price,
-        size: "S",
-        qty: 1,
-      })
-    );
+    const cartProduct: CartProduct = {
+      id: product.id,
+      title: product.title,
+      img: product.img,
+      price: product.price,
+      size: randomEnumValue(Size),
+      qty: 1,
+    };
+    dispatch(addProduct(cartProduct));
+  };
+
+  const randomEnumValue = (enumeration: typeof Size) => {
+    const values = Object.keys(Size);
+    const random = Math.floor(Math.random() * values.length);
+    return enumeration[random];
   };
 
   return (

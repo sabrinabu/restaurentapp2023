@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="bHuYocwW-ojT8QTPDphI">
-        <mxGraphModel dx="819" dy="553" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="771" dy="553" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -43,7 +43,7 @@
                 <mxCell id="hh8J1OoC_zAwZTJa-RJf-14" value="banner" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="105" y="24" width="80" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="hh8J1OoC_zAwZTJa-RJf-15" value="{ product }&lt;br&gt;cartitems" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="hh8J1OoC_zAwZTJa-RJf-15" value="{ cartProduct }&lt;br&gt;cartitems" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="475" y="250" width="85" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="hh8J1OoC_zAwZTJa-RJf-16" value="footer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">

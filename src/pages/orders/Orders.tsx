@@ -13,7 +13,7 @@ export default function Orders() {
       <div className="wrapper">
         <div className="innerwrapper">
           <Order
-            item={{
+            order={{
               id: "Order ID",
               date: "Date",
               price: "Price",
@@ -22,8 +22,8 @@ export default function Orders() {
             }}
             rowtype={"headlines"}
           />
-          {orders.map((item) => (
-            <Order item={item} rowtype={"row"} key={item.id} />
+          {orders.map((order) => (
+            <Order order={order} rowtype={"row"} key={order.id} />
           ))}
         </div>
       </div>

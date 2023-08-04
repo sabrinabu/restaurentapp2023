@@ -1,5 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
+export enum Size {
+  S,
+  M,
+  L,
+  XL,
+  XXL,
+}
+
 export type CartProduct = {
   id: number;
   title: string;

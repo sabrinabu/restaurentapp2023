@@ -2,11 +2,11 @@ import { OrderItem } from "../../data";
 import "./order.scss";
 
 type orderprops = {
-  item: OrderItem;
+  order: OrderItem;
   rowtype: string;
 };
 
-export default function Order({ item, rowtype }: orderprops) {
+export default function Order({ order, rowtype }: orderprops) {
   return (
     <div className="order">
       <div
@@ -14,14 +14,14 @@ export default function Order({ item, rowtype }: orderprops) {
         style={{
           fontWeight: rowtype == "headlines" ? "600" : "400",
           backgroundColor:
-            Number(item.id) % 2 ? "rgb(235, 208, 202)" : "rgb(243, 228, 223)",
+            Number(order.id) % 2 ? "rgb(235, 208, 202)" : "rgb(243, 228, 223)",
         }}
       >
-        <span className="orderid">{item.id}</span>
-        <span className="date">{item.date}</span>
-        <span className="price">{item.price}</span>
-        <span className="desc">{item.desc}</span>
-        <span className="status">{item.status}</span>
+        <span className="orderid">{order.id}</span>
+        <span className="date">{order.date}</span>
+        <span className="price">{order.price}</span>
+        <span className="desc">{order.desc}</span>
+        <span className="status">{order.status}</span>
       </div>
     </div>
   );
