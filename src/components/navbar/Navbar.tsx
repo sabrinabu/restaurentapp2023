@@ -9,21 +9,19 @@ export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.userR.user);
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-  const [fix, setFix]=useState<boolean>(false);
+  const [stickyHeader, setStickyHeader] = useState<boolean>(false);
 
-  const setFixed=()=>{
-    if(window.scrollY >=330){
-      setFix(true)
-
-    }else{
-      setFix(false)
+  const setFixedHeader = () => {
+    if (window.scrollY >= 100) {
+      setStickyHeader(true);
+    } else {
+      setStickyHeader(false);
     }
-  }
-
-  window.addEventListener("scroll", setFixed)
+  };
+  window.addEventListener("scroll", setFixedHeader);
 
   return (
-    <div className={fix? "nav":"navbar"}>
+    <div className={stickyHeader ? "navbar stickyHeader" : "navbar"}>
       <div className="container">
         <div className="left">
           <Link to="/" className="lefMenu">
