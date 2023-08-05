@@ -10,26 +10,38 @@
     padding: 10px;
   }
   .titlesize {
-    flex: 6;
+    flex: 3;
     display: flex;
     flex-direction: column;
     .title {
-      padding: 10px;
+      padding: 5px;
     }
     .size {
-      padding: 10px;
+      padding: 5px;
     }
   }
   .price {
     flex: 1;
     padding: 10px;
   }
-  .qty {
+  .amount {
     flex: 1;
-    padding: 10px;
+    padding: 0px 20px 0 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    .change {
+      background-color: rgb(248, 91, 52);
+      padding: 5px;
+      color: white;
+      cursor: pointer;
+    }
+    .qty {
+      padding: 5px;
+    }
   }
   .deletebtn {
     flex: 1;
-    height: 40px;
+    height: 30px;
   }
 }

@@ -38,7 +38,7 @@ export default function Cart() {
                 <span className="text">
                   Subtotal ({cart.totalquantity} items)
                 </span>
-                <span className="text">{cart.total}€</span>
+                <span className="text">{cart.total.toFixed(2)}€</span>
               </div>
               <div className="row">
                 <span className="text">Service cost</span>
@@ -55,7 +55,10 @@ export default function Cart() {
                   Total cost
                 </span>
                 <span className="text" style={{ fontWeight: 600 }}>
-                  {cart.total > 0 ? cart.total + 20 : cart.total}€
+                  {cart.total > 0
+                    ? (cart.total + 20).toFixed(2)
+                    : cart.total.toFixed(2)}
+                  €
                 </span>
               </div>
               <button className="checkoutbtn" onClick={() => handleClick()}>

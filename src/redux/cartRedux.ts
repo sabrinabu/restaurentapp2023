@@ -42,7 +42,6 @@ const cartSlice = createSlice({
       } else {
         state.products.push(action.payload);
       }
-      //state.products.push(action.payload);
       state.totalquantity += 1;
       state.total += action.payload.price * action.payload.qty;
     },
@@ -55,10 +54,27 @@ const cartSlice = createSlice({
       });
       state.totalquantity -= action.payload.qty;
       state.total -= action.payload.price * action.payload.qty;
-      console.log(state.total);
-      state.total = Math.round(state.total);
     },
-    adjustQuantities: (state, action) => {},
+    adjustQuantities: (
+      state,
+      action: PayloadAction<{ id: number; operation: string }>
+    ) => {
+      const exist = state.products.find((x) => x.id === action.payload.id);
+      if (exist && action.payload.operation === "plus") {
+        state.products = state.products.map((x) =>
+          x.id === action.payload.id ? { ...exist, qty: exist.qty + 1 } : x
+        );
+        state.totalquantity += 1;
+        state.total = state.total + exist.price;
+      }
+      if (exist && action.payload.operation === "minus") {
+        state.products = state.products.map((x) =>
+          x.id === action.payload.id ? { ...exist, qty: exist.qty - 1 } : x
+        );
+        state.totalquantity -= 1;
+        state.total = state.total - exist.price;
+      }
+    },
     reset: (state) => {
       state.products = [];
       state.totalquantity = 0;
