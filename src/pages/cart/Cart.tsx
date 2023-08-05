@@ -2,7 +2,8 @@ import Banner from "../../components/banner/Banner";
 import Cartitem from "../../components/cartitem/Cartitem";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
-import { useAppSelector } from "../../redux/store";
+import { reset } from "../../redux/cartRedux";
+import { useAppSelector, useAppDispatch } from "../../redux/store";
 import "./cart.scss";
 
 export default function Cart() {
@@ -12,6 +13,8 @@ export default function Cart() {
       "Checkout will be implemented soon, until then you can get everything for free. Happy?"
     );
   };
+
+  const dispatch = useAppDispatch();
 
   return (
     <div className="cart">
@@ -24,6 +27,9 @@ export default function Cart() {
               <Cartitem cartProduct={cardProduct} key={cardProduct.id} />
             ))}
           </div>
+          <button className="resetButton" onClick={() => dispatch(reset())}>
+            Reset
+          </button>
         </div>
         <div className="parent">
           <div className="center">
@@ -49,7 +55,7 @@ export default function Cart() {
                   Total cost
                 </span>
                 <span className="text" style={{ fontWeight: 600 }}>
-                  {cart.total + 20}€
+                  {cart.total > 0 ? cart.total + 20 : cart.total}€
                 </span>
               </div>
               <button className="checkoutbtn" onClick={() => handleClick()}>

@@ -47,7 +47,7 @@ export default function Navbar() {
                   logout({ logoutParams: { returnTo: window.location.origin } })
                 }
               >
-                Hi {user?.nickname}, LOGOUT?
+                Hi {user?.nickname}, Logout?
               </div>
             ) : (
               <div onClick={() => loginWithRedirect()}>LOGIN</div>

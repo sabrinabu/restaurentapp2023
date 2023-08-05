@@ -8,8 +8,8 @@ type cartItemProps = {
 
 export default function Cartitem({ cartProduct }: cartItemProps) {
   const dispatch = useDispatch();
-  const handleClick = (id: number) => {
-    dispatch(removeProduct({ id }));
+  const handleClick = (id: number, qty: number, price: number) => {
+    dispatch(removeProduct({ id, qty, price }));
   };
 
   return (
@@ -21,7 +21,12 @@ export default function Cartitem({ cartProduct }: cartItemProps) {
       </div>
       <span className="price">{cartProduct.price}€</span>
       <span className="qty">{cartProduct.qty}</span>
-      <button className="deletebtn" onClick={() => handleClick(cartProduct.id)}>
+      <button
+        className="deletebtn"
+        onClick={() =>
+          handleClick(cartProduct.id, cartProduct.qty, cartProduct.price)
+        }
+      >
         x
       </button>
     </div>
