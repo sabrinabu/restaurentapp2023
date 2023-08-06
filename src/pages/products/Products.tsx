@@ -24,7 +24,11 @@ export default function Category() {
       <Navbar />
       <div className="wrapper">
         {products?.map((product) => (
-          <Product product={product} key={product.id} />
+          <Product
+            product={product}
+            productType={producttype}
+            key={product.id}
+          />
         ))}
       </div>
       <Footer />

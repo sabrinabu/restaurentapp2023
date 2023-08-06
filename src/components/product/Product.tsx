@@ -3,13 +3,23 @@ import "./product.scss";
 import { CartProduct, Size, addProduct } from "../../redux/cartRedux";
 import { Product as ProductP } from "../../data";
 import { useAppDispatch } from "../../redux/store";
+import { useNavigate } from "react-router-dom";
 
 type productprops = {
   product: ProductP;
+  productType: string;
 };
 
-export default function Product({ product }: productprops) {
+export default function Product({ product, productType }: productprops) {
   const [showButton, setShowButton] = useState(false);
+
+  const navigate = useNavigate();
+  const handleSingleProduct = () => {
+    navigate("/menu/" + productType + "/" + product.id, {
+      state: { product },
+    });
+  };
+
   const dispatch = useAppDispatch();
   const handleClick = () => {
     const cartProduct: CartProduct = {
@@ -41,7 +51,11 @@ export default function Product({ product }: productprops) {
         setShowButton(false);
       }}
     >
-      <img className="img" src={product.img} />
+      <img
+        className="img"
+        onClick={() => handleSingleProduct()}
+        src={product.img}
+      />
       <div className="lowerblock">
         <span className="name">{product.title}</span>
         {showButton ? (

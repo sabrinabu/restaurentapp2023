@@ -6,8 +6,6 @@ import {
 } from "../../redux/cartRedux";
 import "./cartitem.scss";
 
-import { useState } from "react";
-
 type cartItemProps = {
   cartProduct: CartProduct;
 };

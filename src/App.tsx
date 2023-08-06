@@ -6,6 +6,7 @@ import Cart from "./pages/cart/Cart";
 import Orders from "./pages/orders/Orders";
 import { fetchUser } from "./redux/userRedux.ts";
 import { useAppDispatch } from "./redux/store.ts";
+import { Product } from "./pages/product/Product.tsx";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menus />} />
           <Route path="/menu/:category" element={<Category />} />
+          <Route path="/menu/:category/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<Orders />} />
         </Routes>
