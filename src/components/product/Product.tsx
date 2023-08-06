@@ -20,6 +20,8 @@ export default function Product({ product, productType }: productprops) {
     });
   };
 
+  // size need to be selectable option later
+
   const dispatch = useAppDispatch();
   const handleClick = () => {
     const cartProduct: CartProduct = {
@@ -27,15 +29,10 @@ export default function Product({ product, productType }: productprops) {
       title: product.title,
       img: product.img,
       price: product.price,
-      size: randomEnumValue(Size),
+      size: "M",
       qty: 1,
     };
     dispatch(addProduct(cartProduct));
-  };
-
-  const randomEnumValue = (sizes: typeof Size) => {
-    const random = Math.floor(Math.random() * 5);
-    return sizes[random];
   };
 
   return (

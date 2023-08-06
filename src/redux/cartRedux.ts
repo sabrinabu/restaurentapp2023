@@ -13,7 +13,7 @@ export type CartProduct = {
   title: string;
   img?: string;
   price: number;
-  size: string;
+  size: string | undefined;
   qty: number;
 };
 
@@ -34,10 +34,16 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<CartProduct>) => {
-      const exist = state.products.find((x) => x.id === action.payload.id);
-      if (exist) {
+      const existId = state.products.find((x) => x.id === action.payload.id);
+      const existsize = state.products.find(
+        (x) => x.size === action.payload.size
+      );
+
+      if (existId && existsize) {
         state.products = state.products.map((x) =>
-          x.id === action.payload.id ? { ...exist, qty: exist.qty + 1 } : x
+          x.size === action.payload.size
+            ? { ...existsize, qty: action.payload.qty }
+            : x
         );
       } else {
         state.products.push(action.payload);
@@ -59,20 +65,21 @@ const cartSlice = createSlice({
       state,
       action: PayloadAction<{ id: number; operation: string }>
     ) => {
-      const exist = state.products.find((x) => x.id === action.payload.id);
-      if (exist && action.payload.operation === "plus") {
+      const existId = state.products.find((x) => x.id === action.payload.id);
+      console.log(existId);
+      if (existId && action.payload.operation === "plus") {
         state.products = state.products.map((x) =>
-          x.id === action.payload.id ? { ...exist, qty: exist.qty + 1 } : x
+          x.id === action.payload.id ? { ...existId, qty: existId.qty + 1 } : x
         );
         state.totalquantity += 1;
-        state.total = state.total + exist.price;
+        state.total = state.total + existId.price;
       }
-      if (exist && action.payload.operation === "minus") {
+      if (existId && action.payload.operation === "minus") {
         state.products = state.products.map((x) =>
-          x.id === action.payload.id ? { ...exist, qty: exist.qty - 1 } : x
+          x.id === action.payload.id ? { ...existId, qty: existId.qty - 1 } : x
         );
         state.totalquantity -= 1;
-        state.total = state.total - exist.price;
+        state.total = state.total - existId.price;
       }
     },
     reset: (state) => {

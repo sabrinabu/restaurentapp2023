@@ -1,10 +1,11 @@
+import "./cartitem.scss";
 import { useDispatch } from "react-redux";
 import {
   CartProduct,
   adjustQuantities,
   removeProduct,
 } from "../../redux/cartRedux";
-import "./cartitem.scss";
+import { IncreaseDecrease } from "../increasedecrease/IncreaseDecrease";
 
 type cartItemProps = {
   cartProduct: CartProduct;
@@ -16,14 +17,7 @@ export default function Cartitem({ cartProduct }: cartItemProps) {
     dispatch(removeProduct({ id, qty, price }));
   };
 
-  /*const handleQtyChange = (id: number, operation: string) => {
-    if (operation == "plus" && cartProduct.qty < 10)
-      dispatch(adjustQuantities({ id, operation }));
-    else if (operation === "minus" && cartProduct.qty > 0)
-      dispatch(adjustQuantities({ id, operation }));
-  };*/
-
-  const handleQtyChange = (id: number, operation: string) => {
+  const handleQuantityChange = (id: number, operation: string) => {
     dispatch(adjustQuantities({ id, operation }));
   };
 
@@ -35,24 +29,11 @@ export default function Cartitem({ cartProduct }: cartItemProps) {
         <span className="size">{cartProduct.size}</span>
       </div>
       <span className="price">{cartProduct.price}€</span>
-      <div className="amount">
-        <button
-          className="changeButton"
-          onClick={() => handleQtyChange(cartProduct.id, "minus")}
-          disabled={cartProduct.qty <= 0 ? true : false}
-        >
-          -
-        </button>
-        <span className="qty">{cartProduct.qty}</span>
-        <button
-          className="changeButton"
-          onClick={() => handleQtyChange(cartProduct.id, "plus")}
-          disabled={cartProduct.qty >= 10 ? true : false}
-        >
-          +
-        </button>
-      </div>
-
+      <IncreaseDecrease
+        id={cartProduct.id}
+        quantity={cartProduct.qty}
+        onButtonClick={handleQuantityChange}
+      />
       <button
         className="deletebtn"
         onClick={() =>
