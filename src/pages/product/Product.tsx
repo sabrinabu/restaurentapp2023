@@ -13,7 +13,7 @@ import { IncreaseDecrease } from "../../components/increasedecrease/IncreaseDecr
 export const Product = () => {
   const location = useLocation();
   const product: ProductP = location.state.product;
-  const [sizeItem, setSizeItem] = useState<string>();
+  const [sizeItem, setSizeItem] = useState<string>(Size[Size.L]);
   const [quantity, setQuantity] = useState<number>(1);
 
   const dispatch = useAppDispatch();
@@ -41,7 +41,15 @@ export const Product = () => {
       <Banner />
       <Navbar />
       <div className="wrapper">
-        <img className="img" src={product.img}></img>
+        <div className="imgBlock">
+          <img
+            className={
+              sizeItem === "L" ? "imgL" : sizeItem === "M" ? "imgM" : "imgS"
+            }
+            src={product.img}
+          ></img>
+        </div>
+
         <div className="textBlock">
           <span className="headline">{product.title}</span>
           <span className="description">{product.desc}</span>

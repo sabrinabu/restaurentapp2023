@@ -6,13 +6,13 @@ import {
   removeProduct,
 } from "../../redux/cartRedux";
 import { IncreaseDecrease } from "../increasedecrease/IncreaseDecrease";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type cartItemProps = {
   cartItem: CartItem;
 };
 
-export default function Cartitem({ cartItem: cartProduct }: cartItemProps) {
+export default function Cartitem({ cartItem }: cartItemProps) {
   const dispatch = useDispatch();
 
   const handleRemoveClick = (
@@ -26,31 +26,38 @@ export default function Cartitem({ cartItem: cartProduct }: cartItemProps) {
   const handleQuantityChange = (operation: string, cartItemId: string) => {
     dispatch(adjustQuantities({ operation, cartItemId }));
   };
+  const navigate = useNavigate();
+  const handleSingleProduct = () => {
+    navigate(
+      "/menu/" + cartItem.product.productType + "/" + cartItem.product.id,
+      {
+        state: { product: cartItem.product },
+      }
+    );
+  };
 
   return (
     <div className="cartitem">
-      <Link to="/menu">
-      <img className="img" src={cartProduct.product.img} />
-      </Link>
-   
+      <img
+        className="img"
+        onClick={handleSingleProduct}
+        src={cartItem.product.img}
+      />
+
       <div className="titlesize">
-        <span className="title">{cartProduct.product.title}</span>
-        <span className="size">{cartProduct.size}</span>
+        <span className="title">{cartItem.product.title}</span>
+        <span className="size">{cartItem.size}</span>
       </div>
-      <span className="price">{cartProduct.product.price}€</span>
+      <span className="price">{cartItem.product.price}€</span>
       <IncreaseDecrease
-        cartItemId={cartProduct.id}
-        quantity={cartProduct.qty}
+        cartItemId={cartItem.id}
+        quantity={cartItem.qty}
         onButtonClick={handleQuantityChange}
       />
       <button
         className="deletebtn"
         onClick={() =>
-          handleRemoveClick(
-            cartProduct.id,
-            cartProduct.qty,
-            cartProduct.product.price
-          )
+          handleRemoveClick(cartItem.id, cartItem.qty, cartItem.product.price)
         }
       >
         x

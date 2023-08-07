@@ -87,6 +87,7 @@ export type Product = {
   img?: string;
   price: number;
   options?: { title: string; additionalPrice: number }[];
+  productType?: string;
 };
 
 type Products = Product[];
@@ -304,6 +305,7 @@ export const pastas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pastas",
   },
   {
     id: 2,
@@ -325,6 +327,7 @@ export const pastas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pastas",
   },
   {
     id: 3,
@@ -346,6 +349,7 @@ export const pastas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pastas",
   },
   {
     id: 4,
@@ -367,6 +371,7 @@ export const pastas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pastas",
   },
   {
     id: 5,
@@ -388,6 +393,7 @@ export const pastas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pastas",
   },
   {
     id: 6,
@@ -409,6 +415,7 @@ export const pastas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pastas",
   },
 ];
 
@@ -433,6 +440,7 @@ export const burgers: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "burgers",
   },
   {
     id: 8,
@@ -454,6 +462,7 @@ export const burgers: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "burgers",
   },
   {
     id: 9,
@@ -475,6 +484,7 @@ export const burgers: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "burgers",
   },
   {
     id: 10,
@@ -496,6 +506,7 @@ export const burgers: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "burgers",
   },
 ];
 export const pizzas: Products = [
@@ -519,6 +530,7 @@ export const pizzas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pizzas",
   },
   {
     id: 12,
@@ -540,6 +552,7 @@ export const pizzas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pizzas",
   },
   {
     id: 13,
@@ -561,6 +574,7 @@ export const pizzas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pizzas",
   },
   {
     id: 14,
@@ -582,6 +596,7 @@ export const pizzas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pizzas",
   },
   {
     id: 15,
@@ -603,6 +618,7 @@ export const pizzas: Products = [
         additionalPrice: 6,
       },
     ],
+    productType: "pizzas",
   },
 ];
 
