@@ -58,9 +58,9 @@ export default function Navbar() {
               ORDERS
             </Link>
           )}
-          {cart.products.length > 0 && (
+          {cart.cartItems?.length > 0 && (
             <Link to="/cart" className="rightMenu">
-              CART({cart.products.length})
+              CART({cart.cartItems?.length})
             </Link>
           )}
         </div>

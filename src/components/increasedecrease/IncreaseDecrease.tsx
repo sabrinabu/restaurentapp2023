@@ -1,25 +1,25 @@
 import "./increasedecrease.scss";
 
 type IncreaseDecreaseProps = {
-  id: number;
+  cartItemId: string;
   quantity: number;
-  onButtonClick: (id: number, operation: string) => void;
+  onButtonClick: (operation: string, cartItemId: string) => void;
 };
 
 export const IncreaseDecrease = ({
-  id,
+  cartItemId,
   quantity,
-  onButtonClick: onButtonClick,
+  onButtonClick,
 }: IncreaseDecreaseProps) => {
-  const handleQtyChange = (id: number, operation: string) => {
-    onButtonClick(id, operation);
+  const handleQtyChange = (operation: string, cartItemId: string) => {
+    onButtonClick(operation, cartItemId);
   };
 
   return (
     <div className="amount">
       <button
         className="changeButton"
-        onClick={() => handleQtyChange(id, "minus")}
+        onClick={() => handleQtyChange("minus", cartItemId)}
         disabled={quantity <= 0 ? true : false}
       >
         -
@@ -27,7 +27,7 @@ export const IncreaseDecrease = ({
       <span className="qty">{quantity}</span>
       <button
         className="changeButton"
-        onClick={() => handleQtyChange(id, "plus")}
+        onClick={() => handleQtyChange("plus", cartItemId)}
         disabled={quantity >= 10 ? true : false}
       >
         +

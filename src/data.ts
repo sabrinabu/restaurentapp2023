@@ -414,7 +414,7 @@ export const pastas: Products = [
 
 export const burgers: Products = [
   {
-    id: 1,
+    id: 7,
     title: "burgers Sicilian",
     desc: "burgers Ignite your taste buds with a fiery combination of spicy pepperoni, jalapeños, crushed red pepper flakes, and melted mozzarella cheese, delivering a kick with every bite.",
     img: "/temporary/p1.png",
@@ -435,7 +435,7 @@ export const burgers: Products = [
     ],
   },
   {
-    id: 2,
+    id: 8,
     title: "burgers Mediterranean Delight",
     desc: "burgers Embark on a culinary journey with this Mediterranean-inspired creation, featuring zesty feta cheese, Kalamata olives, sun-dried tomatoes, and a sprinkle of oregano.",
     img: "/temporary/p8.png",
@@ -456,7 +456,7 @@ export const burgers: Products = [
     ],
   },
   {
-    id: 3,
+    id: 9,
     title: "burgers Bella Napoli",
     desc: "burgers A classic Italian delight featuring a thin, crispy crust, tangy tomato sauce, fresh mozzarella, and a medley of aromatic herbs topped with lettuce, tomatoes, and a dollop of tangy mayo.",
     img: "/temporary/p3.png",
@@ -477,7 +477,7 @@ export const burgers: Products = [
     ],
   },
   {
-    id: 4,
+    id: 10,
     title: "burgers Pesto Primavera",
     desc: "burgers A classic Italian delight featuring a thin, crispy crust, tangy tomato sauce, fresh mozzarella, and a medley of aromatic herbs topped with lettuce, tomatoes, and a dollop of tangy mayo.",
     img: "/temporary/p10.png",
@@ -500,7 +500,7 @@ export const burgers: Products = [
 ];
 export const pizzas: Products = [
   {
-    id: 1,
+    id: 11,
     title: "pizzas Sicilian",
     desc: "pizzas Ignite your taste buds with a fiery combination of spicy pepperoni, jalapeños, crushed red pepper flakes, and melted mozzarella cheese, delivering a kick with every bite.",
     img: "/temporary/p1.png",
@@ -521,7 +521,7 @@ export const pizzas: Products = [
     ],
   },
   {
-    id: 2,
+    id: 12,
     title: "pizzas Mediterranean Delight",
     desc: "pizzas Embark on a culinary journey with this Mediterranean-inspired creation, featuring zesty feta cheese, Kalamata olives, sun-dried tomatoes, and a sprinkle of oregano.",
     img: "/temporary/p8.png",
@@ -542,7 +542,7 @@ export const pizzas: Products = [
     ],
   },
   {
-    id: 3,
+    id: 13,
     title: "pizzas Bella Napoli",
     desc: "pizzas A classic Italian delight featuring a thin, crispy crust, tangy tomato sauce, fresh mozzarella, and a medley of aromatic herbs topped with lettuce, tomatoes, and a dollop of tangy mayo.",
     img: "/temporary/p3.png",
@@ -563,7 +563,7 @@ export const pizzas: Products = [
     ],
   },
   {
-    id: 4,
+    id: 14,
     title: "pizzas Pesto Primavera",
     desc: "pizzas A classic Italian delight featuring a thin, crispy crust, tangy tomato sauce, fresh mozzarella, and a medley of aromatic herbs topped with lettuce, tomatoes, and a dollop of tangy mayo.",
     img: "/temporary/p10.png",
@@ -584,7 +584,7 @@ export const pizzas: Products = [
     ],
   },
   {
-    id: 5,
+    id: 15,
     title: "pizzas Veggie Supreme",
     desc: "pizzas A classic Italian delight featuring a thin, crispy crust, tangy tomato sauce, fresh mozzarella, and a medley of aromatic herbs topped with lettuce, tomatoes, and a dollop of tangy mayo.",
     img: "/temporary/p11.png",

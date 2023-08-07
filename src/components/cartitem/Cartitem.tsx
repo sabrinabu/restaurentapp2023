@@ -1,43 +1,52 @@
 import "./cartitem.scss";
 import { useDispatch } from "react-redux";
 import {
-  CartProduct,
+  CartItem,
   adjustQuantities,
   removeProduct,
 } from "../../redux/cartRedux";
 import { IncreaseDecrease } from "../increasedecrease/IncreaseDecrease";
 
 type cartItemProps = {
-  cartProduct: CartProduct;
+  cartItem: CartItem;
 };
 
-export default function Cartitem({ cartProduct }: cartItemProps) {
+export default function Cartitem({ cartItem: cartProduct }: cartItemProps) {
   const dispatch = useDispatch();
-  const handleClick = (id: number, qty: number, price: number) => {
-    dispatch(removeProduct({ id, qty, price }));
+
+  const handleRemoveClick = (
+    cartItemId: string,
+    qty: number,
+    price: number
+  ) => {
+    dispatch(removeProduct({ cartItemId, qty, price }));
   };
 
-  const handleQuantityChange = (id: number, operation: string) => {
-    dispatch(adjustQuantities({ id, operation }));
+  const handleQuantityChange = (operation: string, cartItemId: string) => {
+    dispatch(adjustQuantities({ operation, cartItemId }));
   };
 
   return (
     <div className="cartitem">
-      <img className="img" src={cartProduct.img} />
+      <img className="img" src={cartProduct.product.img} />
       <div className="titlesize">
-        <span className="title">{cartProduct.title}</span>
+        <span className="title">{cartProduct.product.title}</span>
         <span className="size">{cartProduct.size}</span>
       </div>
-      <span className="price">{cartProduct.price}€</span>
+      <span className="price">{cartProduct.product.price}€</span>
       <IncreaseDecrease
-        id={cartProduct.id}
+        cartItemId={cartProduct.id}
         quantity={cartProduct.qty}
         onButtonClick={handleQuantityChange}
       />
       <button
         className="deletebtn"
         onClick={() =>
-          handleClick(cartProduct.id, cartProduct.qty, cartProduct.price)
+          handleRemoveClick(
+            cartProduct.id,
+            cartProduct.qty,
+            cartProduct.product.price
+          )
         }
       >
         x

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./product.scss";
-import { CartProduct, Size, addProduct } from "../../redux/cartRedux";
+import { CartItem, addProduct } from "../../redux/cartRedux";
 import { Product as ProductP } from "../../data";
 import { useAppDispatch } from "../../redux/store";
 import { useNavigate } from "react-router-dom";
@@ -24,11 +24,9 @@ export default function Product({ product, productType }: productprops) {
 
   const dispatch = useAppDispatch();
   const handleClick = () => {
-    const cartProduct: CartProduct = {
-      id: product.id,
-      title: product.title,
-      img: product.img,
-      price: product.price,
+    const cartProduct: CartItem = {
+      id: "",
+      product: product,
       size: "M",
       qty: 1,
     };

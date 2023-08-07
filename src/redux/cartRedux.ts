@@ -1,4 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
+import { Product } from "../data";
 
 export enum Size {
   S,
@@ -8,23 +10,21 @@ export enum Size {
   XXL,
 }
 
-export type CartProduct = {
-  id: number;
-  title: string;
-  img?: string;
-  price: number;
+export type CartItem = {
+  id: string;
+  product: Product;
   size: string | undefined;
   qty: number;
 };
 
 type InitialState = {
-  products: CartProduct[];
+  cartItems: CartItem[];
   totalquantity: number;
   total: number;
 };
 
 const initialState: InitialState = {
-  products: [],
+  cartItems: [],
   totalquantity: 0,
   total: 0,
 };
@@ -33,57 +33,78 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addProduct: (state, action: PayloadAction<CartProduct>) => {
-      const existId = state.products.find((x) => x.id === action.payload.id);
-      const existsize = state.products.find(
-        (x) => x.size === action.payload.size
+    addProduct: (state, action: PayloadAction<CartItem>) => {
+      const existId = state.cartItems.find(
+        (cartItem) =>
+          cartItem.product.id === action.payload.product.id &&
+          cartItem.product.title === action.payload.product.title &&
+          cartItem.product.desc === action.payload.product.desc &&
+          cartItem.product.price === action.payload.product.price &&
+          cartItem.size === action.payload.size
       );
-
-      if (existId && existsize) {
-        state.products = state.products.map((x) =>
-          x.size === action.payload.size
-            ? { ...existsize, qty: action.payload.qty }
+      if (existId) {
+        state.cartItems = state.cartItems.map((x) =>
+          x.id === existId.id
+            ? { ...existId, qty: existId.qty + action.payload.qty }
             : x
         );
       } else {
-        state.products.push(action.payload);
+        const cartItem: CartItem = {
+          id: uuidv4(),
+          product: action.payload.product,
+          qty: action.payload.qty,
+          size: action.payload.size,
+        };
+        state.cartItems.push(cartItem);
       }
-      state.totalquantity += 1;
-      state.total += action.payload.price * action.payload.qty;
+      state.totalquantity += action.payload.qty;
+      state.total += action.payload.product.price * action.payload.qty;
     },
     removeProduct: (
       state,
-      action: PayloadAction<{ id: number; qty: number; price: number }>
+      action: PayloadAction<{
+        cartItemId: string;
+        qty: number;
+        price: number;
+      }>
     ) => {
-      state.products = state.products.filter((product) => {
-        return product.id != action.payload.id;
+      state.cartItems = state.cartItems.filter((cartItem) => {
+        return cartItem.id != action.payload.cartItemId;
       });
       state.totalquantity -= action.payload.qty;
       state.total -= action.payload.price * action.payload.qty;
     },
     adjustQuantities: (
       state,
-      action: PayloadAction<{ id: number; operation: string }>
+      action: PayloadAction<{
+        cartItemId: string;
+        operation: string;
+      }>
     ) => {
-      const existId = state.products.find((x) => x.id === action.payload.id);
-      console.log(existId);
+      const existId = state.cartItems.find(
+        (cartItem) => cartItem.id === action.payload.cartItemId
+      );
+
       if (existId && action.payload.operation === "plus") {
-        state.products = state.products.map((x) =>
-          x.id === action.payload.id ? { ...existId, qty: existId.qty + 1 } : x
+        state.cartItems = state.cartItems.map((cartItem) =>
+          cartItem.id === existId.id
+            ? { ...existId, qty: existId.qty + 1 }
+            : cartItem
         );
         state.totalquantity += 1;
-        state.total = state.total + existId.price;
-      }
-      if (existId && action.payload.operation === "minus") {
-        state.products = state.products.map((x) =>
-          x.id === action.payload.id ? { ...existId, qty: existId.qty - 1 } : x
+        state.total = state.total + existId.product.price;
+      } else if (existId && action.payload.operation === "minus") {
+        state.cartItems = state.cartItems.map((cartItem) =>
+          cartItem.id === existId.id
+            ? { ...existId, qty: existId.qty - 1 }
+            : cartItem
         );
         state.totalquantity -= 1;
-        state.total = state.total - existId.price;
+        state.total = state.total - existId.product.price;
       }
     },
     reset: (state) => {
-      state.products = [];
+      state.cartItems = [];
       state.totalquantity = 0;
       state.total = 0;
     },

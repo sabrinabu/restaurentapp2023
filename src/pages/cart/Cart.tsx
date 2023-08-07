@@ -23,8 +23,8 @@ export default function Cart() {
       <div className="wrapper">
         <div className="parent">
           <div className="center">
-            {cart.products.map((cardProduct) => (
-              <Cartitem cartProduct={cardProduct} key={cardProduct.id} />
+            {cart.cartItems.map((cardProduct) => (
+              <Cartitem cartItem={cardProduct} key={cardProduct.id} />
             ))}
           </div>
           <button className="resetButton" onClick={() => dispatch(reset())}>

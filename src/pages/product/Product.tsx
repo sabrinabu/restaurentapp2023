@@ -5,7 +5,7 @@ import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import { Product as ProductP } from "../../data";
 
-import { CartProduct, Size, addProduct } from "../../redux/cartRedux";
+import { CartItem, Size, addProduct } from "../../redux/cartRedux";
 import { useAppDispatch } from "../../redux/store";
 import { useState } from "react";
 import { IncreaseDecrease } from "../../components/increasedecrease/IncreaseDecrease";
@@ -19,11 +19,9 @@ export const Product = () => {
   const dispatch = useAppDispatch();
 
   const handleAddProduct = () => {
-    const cartProduct: CartProduct = {
-      id: product.id,
-      img: product.img,
-      price: product.price,
-      title: product.title,
+    const cartProduct: CartItem = {
+      id: "",
+      product: product,
       qty: quantity,
       size: sizeItem,
     };
@@ -34,7 +32,7 @@ export const Product = () => {
     setSizeItem(Size[size]);
   };
 
-  const adjustQuantity = (id: number, operation: string) => {
+  const adjustQuantity = (operation: string) => {
     if (operation === "plus") setQuantity(quantity + 1);
     if (operation === "minus") setQuantity(quantity - 1);
   };
@@ -72,7 +70,7 @@ export const Product = () => {
           <div className="quantityAddToCart">
             <span className="quantity">Quantity</span>
             <IncreaseDecrease
-              id={product.id}
+              cartItemId={""}
               quantity={quantity}
               onButtonClick={adjustQuantity}
             />
