@@ -6,6 +6,7 @@ import {
   removeProduct,
 } from "../../redux/cartRedux";
 import { IncreaseDecrease } from "../increasedecrease/IncreaseDecrease";
+import { Link } from "react-router-dom";
 
 type cartItemProps = {
   cartItem: CartItem;
@@ -28,7 +29,10 @@ export default function Cartitem({ cartItem: cartProduct }: cartItemProps) {
 
   return (
     <div className="cartitem">
+      <Link to="/menu">
       <img className="img" src={cartProduct.product.img} />
+      </Link>
+   
       <div className="titlesize">
         <span className="title">{cartProduct.product.title}</span>
         <span className="size">{cartProduct.size}</span>

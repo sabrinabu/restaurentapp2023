@@ -31,7 +31,6 @@ export const Product = () => {
   const handleSizeChange = (size: Size) => {
     setSizeItem(Size[size]);
   };
-
   const adjustQuantity = (operation: string) => {
     if (operation === "plus") setQuantity(quantity + 1);
     if (operation === "minus") setQuantity(quantity - 1);
@@ -49,19 +48,19 @@ export const Product = () => {
           <span className="price">{product.price}€</span>
           <div className="sizeButtons">
             <button
-              className="sizeBtn"
+              className={sizeItem === "S" ? "sizeBtnRed" : "sizeBtn"}
               onClick={() => handleSizeChange(Size.S)}
             >
               Small
             </button>
             <button
-              className="sizeBtn"
+              className={sizeItem === "M" ? "sizeBtnRed" : "sizeBtn"}
               onClick={() => handleSizeChange(Size.M)}
             >
               Medium
             </button>
             <button
-              className="sizeBtn"
+              className={sizeItem === "L" ? "sizeBtnRed" : "sizeBtn"}
               onClick={() => handleSizeChange(Size.L)}
             >
               Large
