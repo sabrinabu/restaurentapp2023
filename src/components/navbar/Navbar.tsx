@@ -3,26 +3,17 @@ import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppSelector } from "../../redux/store";
-import { useState } from "react";
+import useStickyPart from "../../hooks/useStickyPart";
 
 export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.user.user);
   const wishlist = useAppSelector((state) => state.wish);
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-  const [stickyHeader, setStickyHeader] = useState<boolean>(false);
-
-  const setFixedHeader = () => {
-    if (window.scrollY >= 100 && window.innerWidth > 750) {
-      setStickyHeader(true);
-    } else {
-      setStickyHeader(false);
-    }
-  };
-  window.addEventListener("scroll", setFixedHeader);
+  const { isSticky } = useStickyPart(100, 750);
 
   return (
-    <div className={stickyHeader ? "navbar stickyHeader" : "navbar"}>
+    <div className={isSticky ? "navbar stickyHeader" : "navbar"}>
       <div className="container">
         <Link to="/" className="menuItem">
           HOME

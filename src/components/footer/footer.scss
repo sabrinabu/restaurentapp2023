@@ -6,7 +6,6 @@
   width: 100%;
   flex-wrap: wrap;
   position: sticky;
-  top: 100%;
 
   .left {
     font-weight: 700;
@@ -17,4 +16,11 @@
     font-size: smaller;
     padding: 10px;
   }
+}
+
+.stickyFooter {
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(255, 255, 255);
+  z-index: 10;
 }
