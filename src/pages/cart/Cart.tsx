@@ -42,12 +42,12 @@ export default function Cart() {
               </div>
               <div className="row">
                 <span className="text">Service cost</span>
-                <span className="text">20€</span>
+                <span className="text">0€</span>
               </div>
               <div className="row">
                 <span className="text">Delivery cost</span>
                 <span className="text" style={{ color: "green" }}>
-                  Free!
+                  {cart.total > 50 ? "Free!" : "5€"}
                 </span>
               </div>
               <div className="row" style={{ padding: "50px 20px" }}>
@@ -55,9 +55,11 @@ export default function Cart() {
                   Total cost
                 </span>
                 <span className="text" style={{ fontWeight: 600 }}>
-                  {cart.total > 0
-                    ? (cart.total + 20).toFixed(2)
-                    : cart.total.toFixed(2)}
+                  {cart.total > 0.1
+                    ? cart.total < 50 && cart.total !== 0
+                      ? (cart.total + 5).toFixed(2)
+                      : cart.total.toFixed(2)
+                    : 0}
                   €
                 </span>
               </div>

@@ -24,53 +24,61 @@ export default function Navbar() {
   return (
     <div className={stickyHeader ? "navbar stickyHeader" : "navbar"}>
       <div className="container">
-        <div className="left">
-          <Link to="/" className="lefMenu">
-            HOME
-          </Link>
-          <Link className="lefMenu" to="/menu">
-            MENU
-          </Link>
-          <Link to="/" className="lefMenu">
-            CONTACT
-          </Link>
-        </div>
-        <div className="middle">RESTAURENT</div>
-        <div className="right">
-          <div className="rightone">
-            <BsTelephone size={17} color="grey" />
-            <span>178 456 78</span>
-          </div>
-          <div className="rightMenu">
-            {isAuthenticated ? (
-              <div
-                onClick={() =>
-                  logout({ logoutParams: { returnTo: window.location.origin } })
-                }
-              >
-                Hi {user?.nickname}, Logout?
-              </div>
-            ) : (
-              <div onClick={() => loginWithRedirect()}>LOGIN</div>
-            )}
-          </div>
-          {user.role == "admin" && (
-            <Link to="/orders" className="rightMenu">
-              ORDERS
-            </Link>
+        <Link to="/" className="menuItem">
+          HOME
+        </Link>
+        <Link className="menuItem" to="/menu">
+          MENU
+        </Link>
+        <Link to="/" className="menuItem">
+          CONTACT
+        </Link>
+        <span
+          className="menuItem"
+          style={{ fontSize: "25px", fontWeight: "600" }}
+        >
+          RESTAURENT
+        </span>
+        <span
+          className="menuItem"
+          style={{
+            padding: "3px",
+            borderRadius: "5%",
+            backgroundColor: "rgb(231, 212, 180)",
+          }}
+        >
+          <BsTelephone size={17} color="grey" />
+          <span>178 456 78</span>
+        </span>
+        <span className="menuItem">
+          {isAuthenticated ? (
+            <span
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
+            >
+              Hi {user?.nickname}, Logout?
+            </span>
+          ) : (
+            <span onClick={() => loginWithRedirect()}>LOGIN</span>
           )}
-          {cart.cartItems?.length > 0 && (
-            <Link to="/cart" className="rightMenu">
-              CART({cart.cartItems?.length})
-            </Link>
-          )}
+        </span>
+        {user.role == "admin" && (
+          <Link to="/orders" className="menuItem">
+            ORDERS
+          </Link>
+        )}
+        {cart.cartItems?.length > 0 && (
+          <Link to="/cart" className="menuItem">
+            CART({cart.cartItems?.length})
+          </Link>
+        )}
 
-          {wishlist.wishItems?.length > 0 && (
-            <Link to="/wishlist" className="rightMenu">
-              Wish({wishlist.wishItems?.length})
-            </Link>
-          )}
-        </div>
+        {wishlist.wishItems?.length > 0 && (
+          <Link to="/wishlist" className="menuItem">
+            Wish({wishlist.wishItems?.length})
+          </Link>
+        )}
       </div>
     </div>
   );
