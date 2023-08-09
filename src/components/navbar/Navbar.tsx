@@ -13,7 +13,7 @@ export default function Navbar() {
   const [stickyHeader, setStickyHeader] = useState<boolean>(false);
 
   const setFixedHeader = () => {
-    if (window.scrollY >= 100) {
+    if (window.scrollY >= 100 && window.innerWidth > 750) {
       setStickyHeader(true);
     } else {
       setStickyHeader(false);
@@ -42,13 +42,13 @@ export default function Navbar() {
         <span
           className="menuItem"
           style={{
-            padding: "3px",
+            padding: "10px",
             borderRadius: "5%",
             backgroundColor: "rgb(231, 212, 180)",
           }}
         >
-          <BsTelephone size={17} color="grey" />
-          <span>178 456 78</span>
+          <BsTelephone color="grey" />
+          <span style={{ fontSize: "20px" }}>030-178456</span>
         </span>
         <span className="menuItem">
           {isAuthenticated ? (
@@ -76,7 +76,7 @@ export default function Navbar() {
 
         {wishlist.wishItems?.length > 0 && (
           <Link to="/wishlist" className="menuItem">
-            Wish({wishlist.wishItems?.length})
+            WISH({wishlist.wishItems?.length})
           </Link>
         )}
       </div>
