@@ -1,5 +1,7 @@
 import "./cartitem.scss";
 import { useDispatch } from "react-redux";
+import { AiOutlineDelete } from "react-icons/ai";
+import { BsSave } from "react-icons/bs";
 import {
   CartItem,
   adjustQuantities,
@@ -26,6 +28,7 @@ export default function Cartitem({ cartItem }: cartItemProps) {
   const handleQuantityChange = (operation: string, cartItemId: string) => {
     dispatch(adjustQuantities({ operation, cartItemId }));
   };
+  
   const navigate = useNavigate();
   const handleSingleProduct = () => {
     navigate(
@@ -60,7 +63,10 @@ export default function Cartitem({ cartItem }: cartItemProps) {
           handleRemoveClick(cartItem.id, cartItem.qty, cartItem.product.price)
         }
       >
-        x
+        <AiOutlineDelete />
+      </button>
+      <button className="deletebtn">
+        <BsSave />
       </button>
     </div>
   );

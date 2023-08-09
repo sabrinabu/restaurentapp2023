@@ -7,7 +7,8 @@ import { useState } from "react";
 
 export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
-  const user = useAppSelector((state) => state.userR.user);
+  const user = useAppSelector((state) => state.user.user);
+  const wishlist = useAppSelector((state) => state.wish);
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const [stickyHeader, setStickyHeader] = useState<boolean>(false);
 
@@ -61,6 +62,12 @@ export default function Navbar() {
           {cart.cartItems?.length > 0 && (
             <Link to="/cart" className="rightMenu">
               CART({cart.cartItems?.length})
+            </Link>
+          )}
+
+          {wishlist.wishItems?.length > 0 && (
+            <Link to="/wishlist" className="rightMenu">
+              Wish({wishlist.wishItems?.length})
             </Link>
           )}
         </div>

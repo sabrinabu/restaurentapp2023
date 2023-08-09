@@ -1,0 +1,25 @@
+.wishitem {
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .img {
+    width: 50px;
+  }
+  .title {
+    width: 200px;
+  }
+  .price {
+  }
+  .deleteBtn {
+  }
+  .addToCardBlock {
+    display: flex;
+    gap: 10px;
+    .selectSize {
+    }
+    .addCartBtn {
+    }
+  }
+}

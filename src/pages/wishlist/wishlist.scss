@@ -1,0 +1,14 @@
+.wishlist {
+  .wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    .wishItems {
+      width: 60%;
+      border: 1px solid;
+    }
+  }
+}
