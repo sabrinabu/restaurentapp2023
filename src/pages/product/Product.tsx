@@ -42,12 +42,7 @@ export const Product = () => {
       <Navbar />
       <div className="wrapper">
         <div className="imgBlock">
-          <img
-            className={
-              sizeItem === "L" ? "imgL" : sizeItem === "M" ? "imgM" : "imgS"
-            }
-            src={product.img}
-          ></img>
+          <img className="img" src={product.img}></img>
         </div>
 
         <div className="textBlock">

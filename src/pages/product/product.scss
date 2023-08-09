@@ -10,18 +10,9 @@
       justify-content: center;
       align-items: center;
       flex: 1;
-      .imgL {
-        width: 780px;
-        padding: 20px;
-      }
-      .imgM {
+      .img {
         flex: 1;
-        width: 770px;
-        padding: 20px;
-      }
-      .imgS {
-        flex: 1;
-        width: 760px;
+        width: 600px;
         padding: 20px;
       }
     }
@@ -48,7 +39,7 @@
         padding: 0 0 20px 0;
       }
       .sizeButtons {
-        width: 60%;
+        width: 70%;
         padding: 0 0 20px 0;
         display: flex;
         justify-content: space-between;
@@ -64,7 +55,7 @@
         }
       }
       .quantityAddToCart {
-        width: 60%;
+        width: 70%;
         padding: 20px 0 20px 0;
         display: flex;
         justify-content: space-between;
