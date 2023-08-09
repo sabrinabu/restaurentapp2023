@@ -11,7 +11,7 @@ type wishItemProps = {
 };
 
 export default function Wishitem({ wishItem }: wishItemProps) {
-  const [size, setSize]=useState<string>("")
+  const [size, setSize] = useState<string>("");
   const dispatch = useAppDispatch();
   const handleRemoveClick = (id: string) => {
     console.log("id");
@@ -30,7 +30,7 @@ export default function Wishitem({ wishItem }: wishItemProps) {
     dispatch(removeWishProduct({ id: wishItem.id }));
   };
 
-  console.log(size)
+  console.log(size);
 
   return (
     <div className="wishitem">
@@ -44,9 +44,9 @@ export default function Wishitem({ wishItem }: wishItemProps) {
         <AiOutlineDelete />
       </button>
       <div className="addToCardBlock">
-        <select onChange={e => setSize(e.target.value)}>
+        <select onChange={(e) => setSize(e.target.value)}>
           <option>S</option>
-          <option>M</option>
+          <option selected>M</option>
           <option>L</option>
           <option>XL</option>
           <option>XXL</option>

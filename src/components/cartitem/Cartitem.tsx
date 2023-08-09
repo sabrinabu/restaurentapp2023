@@ -9,6 +9,7 @@ import {
 } from "../../redux/cartRedux";
 import { IncreaseDecrease } from "../increasedecrease/IncreaseDecrease";
 import { useNavigate } from "react-router-dom";
+import { WishItem, addwishlist } from "../../redux/wishlistRedux";
 
 type cartItemProps = {
   cartItem: CartItem;
@@ -28,7 +29,22 @@ export default function Cartitem({ cartItem }: cartItemProps) {
   const handleQuantityChange = (operation: string, cartItemId: string) => {
     dispatch(adjustQuantities({ operation, cartItemId }));
   };
-  
+
+  const handleAddWishBtn = () => {
+    const wishItem: WishItem = {
+      id: "",
+      wishproduct: cartItem.product,
+    };
+    dispatch(addwishlist(wishItem));
+    dispatch(
+      removeProduct({
+        cartItemId: cartItem.id,
+        qty: cartItem.qty,
+        price: cartItem.product.price,
+      })
+    );
+  };
+
   const navigate = useNavigate();
   const handleSingleProduct = () => {
     navigate(
@@ -65,7 +81,7 @@ export default function Cartitem({ cartItem }: cartItemProps) {
       >
         <AiOutlineDelete />
       </button>
-      <button className="deletebtn">
+      <button className="deletebtn" onClick={handleAddWishBtn}>
         <BsSave />
       </button>
     </div>
