@@ -31,7 +31,7 @@ export default function Navbar() {
           <Link className="lefMenu" to="/menu">
             MENU
           </Link>
-          <Link to="/" className="lefMenu">
+          <Link to="/contact" className="lefMenu">
             CONTACT
           </Link>
         </div>

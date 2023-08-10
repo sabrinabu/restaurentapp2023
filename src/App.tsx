@@ -8,6 +8,7 @@ import { fetchUser } from "./redux/userRedux.ts";
 import { useAppDispatch } from "./redux/store.ts";
 import { Product } from "./pages/product/Product.tsx";
 import Wishlist from "./pages/wishlist/Wishlist.tsx";
+import Contact from "./pages/contact/Contact.tsx";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -24,6 +25,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
     </>
