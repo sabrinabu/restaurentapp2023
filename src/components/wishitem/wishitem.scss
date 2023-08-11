@@ -1,5 +1,5 @@
 .wishitem {
-  border: 1px solid;
+  border: 1px solid rgb(230, 224, 224);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,6 +20,36 @@
     .selectSize {
     }
     .addCartBtn {
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .wishitem {
+    border: 1px solid rgb(230, 224, 224);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .img {
+      width: 30px;
+    }
+    .title {
+      font-size: 15px;
+      width: 100px;
+    }
+    .price {
+      font-size: 15px;
+    }
+    .deleteBtn {
+    }
+    .addToCardBlock {
+      display: flex;
+      gap: 5px;
+      .selectSize {
+        font-size: 10px;
+      }
+      .addCartBtn {
+      }
     }
   }
 }
