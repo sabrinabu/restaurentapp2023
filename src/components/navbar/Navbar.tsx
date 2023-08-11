@@ -21,7 +21,7 @@ export default function Navbar() {
         <Link className="menuItem" to="/menu">
           MENU
         </Link>
-        <Link to="/" className="menuItem">
+        <Link to="/contact" className="menuItem">
           CONTACT
         </Link>
         <span className="menuTitle">RESTAURENT</span>
@@ -46,6 +46,7 @@ export default function Navbar() {
           <Link to="/orders" className="menuItem">
             ORDERS
           </Link>
+
         )}
         {cart.cartItems?.length > 0 && (
           <Link to="/cart" className="menuItem">

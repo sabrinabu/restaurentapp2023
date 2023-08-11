@@ -1,0 +1,63 @@
+.contact {
+  min-height: 100vh;
+
+  .contactWrapper {
+    height: 70vh;
+    display: flex;
+    .formWrapper {
+      width: 60%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      .heading {
+        padding: 30px;
+        font-weight: 600;
+      }
+      .innerWrapper {
+        position: absolute;
+        width: 70%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        .labelName {
+          text-align: center;
+          padding: 10px;
+        }
+        .input {
+          width: 500px;
+          height: 25px;
+        }
+        .inputsend {
+          width: 500px;
+          height: 35px;
+          padding: 10px;
+        }
+        .inputsend:hover {
+          background-color: green;
+          cursor: pointer;
+        }
+      }
+    }
+    .mapWrapper {
+      width: 40%;
+      display: flex;
+      position: relative;
+      .heading {
+        padding: 10px;
+      }
+      .mapInnerWrapper {
+        position: absolute;
+        width: 50%;
+        height: 80%;
+        padding: 70px;
+      }
+    }
+  }
+}
