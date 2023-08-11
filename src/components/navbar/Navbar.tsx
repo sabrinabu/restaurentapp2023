@@ -24,22 +24,10 @@ export default function Navbar() {
         <Link to="/" className="menuItem">
           CONTACT
         </Link>
-        <span
-          className="menuItem"
-          style={{ fontSize: "25px", fontWeight: "600" }}
-        >
-          RESTAURENT
-        </span>
-        <span
-          className="menuItem"
-          style={{
-            padding: "10px",
-            borderRadius: "5%",
-            backgroundColor: "rgb(231, 212, 180)",
-          }}
-        >
+        <span className="menuTitle">RESTAURENT</span>
+        <span className="menuPhone">
           <BsTelephone color="grey" />
-          <span style={{ fontSize: "20px" }}>030-178456</span>
+          <span>030-178456</span>
         </span>
         <span className="menuItem">
           {isAuthenticated ? (

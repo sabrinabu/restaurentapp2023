@@ -4,7 +4,6 @@
   color: rgb(248, 91, 52);
   background-color: rgb(255, 255, 255);
   width: 100%;
-  flex-wrap: wrap;
   position: sticky;
 
   .left {
@@ -15,6 +14,29 @@
   .right {
     font-size: smaller;
     padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    color: rgb(248, 91, 52);
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    position: sticky;
+
+    .left {
+      font-weight: 700;
+      padding: 10px;
+      font-size: 13px;
+    }
+
+    .right {
+      font-size: smaller;
+      padding: 10px;
+      font-size: 13px;
+    }
   }
 }
 
