@@ -10,7 +10,7 @@ export default function Navbar() {
   const user = useAppSelector((state) => state.user.user);
   const wishlist = useAppSelector((state) => state.wish);
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-  const { isSticky } = useStickyPart(100, 750);
+  const { isSticky } = useStickyPart(200, 750);
 
   return (
     <div className={isSticky ? "navbar stickyHeader" : "navbar"}>
