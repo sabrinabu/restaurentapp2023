@@ -4,19 +4,21 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 0 30px 0 30px;
     .imgBlock {
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex: 1;
       .img {
+        border: 1px solid;
         flex: 1;
-        width: 600px;
+        min-width: 300px;
+        width: 100%;
         padding: 20px;
       }
     }
     .textBlock {
+      min-width: 300px;
       padding: 20px;
       flex: 1;
       border: 1px solid;

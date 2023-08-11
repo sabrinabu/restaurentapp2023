@@ -1,14 +1,14 @@
 .menu {
-  min-height: 100vh;
   .menus {
     height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     .container {
-      height: 75%;
-      width: 85%;
+      height: 70%;
+      max-width: 85%;
       display: flex;
+      flex-wrap: wrap;
     }
   }
 }

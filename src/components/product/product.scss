@@ -4,7 +4,7 @@
   border: 1px solid rgb(131, 124, 124);
   padding: 10px;
   .img {
-    width: 390px;
+    max-width: 390px;
   }
   .lowerblock {
     display: flex;
@@ -29,6 +29,45 @@
       color: white;
       border-style: none;
       cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .product {
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    padding: 10px;
+    .img {
+      max-width: 350px;
+    }
+    .lowerblock {
+      display: flex;
+      justify-content: space-between;
+
+      .title {
+        flex: 2;
+        font-size: medium;
+        font-weight: 600;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .price {
+        flex: 1;
+        font-weight: 500;
+      }
+      .addToCardBtn {
+        flex: 1;
+        width: 30px;
+        background-color: rgb(248, 91, 52);
+        color: white;
+        border-style: none;
+        cursor: pointer;
+        font-size: 13px;
+      }
     }
   }
 }

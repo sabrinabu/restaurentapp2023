@@ -1,3 +1,37 @@
+.navbar {
+  width: 100%;
+  .container {
+    padding: 10px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .menuItem {
+      text-decoration: none;
+      color: rgb(248, 91, 52);
+      padding: 0 15px;
+      &:hover {
+        background-color: rgb(248, 91, 52);
+        color: rgb(238, 238, 238);
+      }
+    }
+    .menuTitle {
+      text-decoration: none;
+      color: rgb(248, 91, 52);
+      padding: 0 15px;
+      font-size: 25px;
+      font-weight: 600;
+    }
+    .menuPhone {
+      text-decoration: none;
+      color: rgb(248, 91, 52);
+      padding: 5px;
+      border-radius: 5%;
+      background-color: rgb(231, 212, 180);
+    }
+  }
+}
+
 .stickyHeader {
   position: fixed;
   top: 0;
@@ -5,66 +39,43 @@
   z-index: 10;
 }
 
-.navbar {
-  width: 100%;
-
-  .container {
-    padding: 20px 0 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .left {
-      flex: 3;
+@media only screen and (max-width: 750px) {
+  .navbar {
+    width: 100%;
+    .container {
+      padding: 10px 0 10px 0;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
       flex-wrap: wrap;
-      color: rgb(248, 91, 52);
-
-      .lefMenu {
+      .menuItem {
+        border: 1px solid;
+        width: 100%;
         text-decoration: none;
         color: rgb(248, 91, 52);
-        padding: 5px;
+        padding: 10px;
         &:hover {
           background-color: #91b9e7;
           color: rgb(238, 238, 238);
         }
       }
-    }
-
-    .middle {
-      flex: 2;
-      text-align: center;
-      font-size: 25px;
-      font-weight: 600;
-      color: rgb(248, 91, 52);
-    }
-
-    .right {
-      flex: 6;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      color: rgb(248, 91, 52);
-
-      .rightone {
-        background-color: rgb(247, 200, 114);
-        padding: 3px;
-        border-radius: 15%;
-        display: flex;
-        gap: 5px;
-      }
-      .rightMenu {
+      .menuTitle {
+        width: 100%;
+        border: 1px solid;
         text-decoration: none;
         color: rgb(248, 91, 52);
-        padding: 5px;
-        &:hover {
-          background-color: #91b9e7;
-          color: rgb(238, 238, 238);
-        }
+        padding: 7px;
+        font-size: 25px;
+        font-weight: 600;
+      }
+      .menuPhone {
+        width: 100%;
+        border: 1px solid;
+        text-decoration: none;
+        color: rgb(248, 91, 52);
+        padding: 9px;
+        border-radius: 5%;
+        background-color: rgb(231, 212, 180);
       }
     }
   }

@@ -5,11 +5,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding-top: 30px;
 
     .wishItems {
       width: 60%;
-      border: 1px solid;
+      border: 1px solid rgb(230, 224, 224);
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .wishlist {
+    .wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 20px 30px 0;
+
+      .wishItems {
+        width: 100%;
+        border: 1px solid rgb(230, 224, 224);
+      }
     }
   }
 }

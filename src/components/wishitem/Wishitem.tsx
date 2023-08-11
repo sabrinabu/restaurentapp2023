@@ -25,12 +25,9 @@ export default function Wishitem({ wishItem }: wishItemProps) {
       size: size,
       qty: 1,
     };
-    console.log(cartProduct);
     dispatch(addProduct(cartProduct));
     dispatch(removeWishProduct({ id: wishItem.id }));
   };
-
-  console.log(size);
 
   return (
     <div className="wishitem">
@@ -44,7 +41,10 @@ export default function Wishitem({ wishItem }: wishItemProps) {
         <AiOutlineDelete />
       </button>
       <div className="addToCardBlock">
-        <select onChange={(e) => setSize(e.target.value)}>
+        <select
+          className="selectSize"
+          onChange={(e) => setSize(e.target.value)}
+        >
           <option>S</option>
           <option selected>M</option>
           <option>L</option>
