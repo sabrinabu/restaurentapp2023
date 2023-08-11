@@ -69,7 +69,7 @@ export default function Product({ product, productType }: productprops) {
       </span>
 
       <div className="lowerblock">
-        <span className="name">{product.title}</span>
+        <span className="title">{product.title}</span>
         {showButton ? (
           <button className="addToCardBtn" onClick={() => handleClick()}>
             Add to Cart

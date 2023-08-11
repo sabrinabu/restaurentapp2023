@@ -25,3 +25,34 @@
     }
   }
 }
+
+@media only screen and (max-width: 750px) {
+  .order {
+    .row {
+      display: flex;
+      padding: 5px;
+      color: rgb(248, 91, 52);
+      font-size: 15px;
+      .orderid {
+        flex: 3;
+        padding: 10px;
+      }
+      .date {
+        flex: 2;
+        padding: 10px;
+      }
+      .price {
+        flex: 1;
+        padding: 10px;
+      }
+      .desc {
+        flex: 7;
+        padding: 10px;
+      }
+      .status {
+        flex: 4;
+        padding: 10px;
+      }
+    }
+  }
+}

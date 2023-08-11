@@ -3,74 +3,62 @@ import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppSelector } from "../../redux/store";
-import { useState } from "react";
+import useStickyPart from "../../hooks/useStickyPart";
 
 export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.user.user);
   const wishlist = useAppSelector((state) => state.wish);
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-  const [stickyHeader, setStickyHeader] = useState<boolean>(false);
-
-  const setFixedHeader = () => {
-    if (window.scrollY >= 100) {
-      setStickyHeader(true);
-    } else {
-      setStickyHeader(false);
-    }
-  };
-  window.addEventListener("scroll", setFixedHeader);
+  const { isSticky } = useStickyPart(200, 750);
 
   return (
-    <div className={stickyHeader ? "navbar stickyHeader" : "navbar"}>
+    <div className={isSticky ? "navbar stickyHeader" : "navbar"}>
       <div className="container">
-        <div className="left">
-          <Link to="/" className="lefMenu">
-            HOME
-          </Link>
-          <Link className="lefMenu" to="/menu">
-            MENU
-          </Link>
-          <Link to="/contact" className="lefMenu">
-            CONTACT
-          </Link>
-        </div>
-        <div className="middle">RESTAURENT</div>
-        <div className="right">
-          <div className="rightone">
-            <BsTelephone size={17} color="grey" />
-            <span>178 456 78</span>
-          </div>
-          <div className="rightMenu">
-            {isAuthenticated ? (
-              <div
-                onClick={() =>
-                  logout({ logoutParams: { returnTo: window.location.origin } })
-                }
-              >
-                Hi {user?.nickname}, Logout?
-              </div>
-            ) : (
-              <div onClick={() => loginWithRedirect()}>LOGIN</div>
-            )}
-          </div>
-          {user.role == "admin" && (
-            <Link to="/orders" className="rightMenu">
-              ORDERS
-            </Link>
+        <Link to="/" className="menuItem">
+          HOME
+        </Link>
+        <Link className="menuItem" to="/menu">
+          MENU
+        </Link>
+        <Link to="/contact" className="menuItem">
+          CONTACT
+        </Link>
+        <span className="menuTitle">RESTAURENT</span>
+        <span className="menuPhone">
+          <BsTelephone color="grey" />
+          <span>030-178456</span>
+        </span>
+        <span className="menuItem">
+          {isAuthenticated ? (
+            <span
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
+            >
+              Hi {user?.nickname}, Logout?
+            </span>
+          ) : (
+            <span onClick={() => loginWithRedirect()}>LOGIN</span>
           )}
-          {cart.cartItems?.length > 0 && (
-            <Link to="/cart" className="rightMenu">
-              CART({cart.cartItems?.length})
-            </Link>
-          )}
+        </span>
+        {user.role == "admin" && (
+          <Link to="/orders" className="menuItem">
+            ORDERS
+          </Link>
 
-          {wishlist.wishItems?.length > 0 && (
-            <Link to="/wishlist" className="rightMenu">
-              Wish({wishlist.wishItems?.length})
-            </Link>
-          )}
-        </div>
+        )}
+        {cart.cartItems?.length > 0 && (
+          <Link to="/cart" className="menuItem">
+            CART({cart.cartItems?.length})
+          </Link>
+        )}
+
+        {wishlist.wishItems?.length > 0 && (
+          <Link to="/wishlist" className="menuItem">
+            WISH({wishlist.wishItems?.length})
+          </Link>
+        )}
       </div>
     </div>
   );
