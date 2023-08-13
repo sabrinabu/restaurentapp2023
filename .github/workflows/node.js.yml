@@ -3,7 +3,7 @@
 
 name: CI/CD
 
-on:"WS<Y"
+on:
   push:
     branches: ["master"]
   pull_request:
