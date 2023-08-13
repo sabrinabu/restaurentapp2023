@@ -63,13 +63,14 @@ const userSlice = createSlice({
       };
       console.log("fetchUser Succeed");
     });
-
+    /*
     builder.addCase(fetchUser.rejected, (state, action) => {
       console.log("fetchUser rejected");
     });
     builder.addCase(fetchUser.pending, (state, action) => {
       console.log("fetchUser pending");
     });
+    */
   },
 });
 

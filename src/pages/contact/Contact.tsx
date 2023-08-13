@@ -6,16 +6,18 @@ import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 
 export default function Contact() {
-  const form = useRef<HTMLInputElement>();
+  const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const sendEmail = (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const currrentForm = form.current;
+    if (currrentForm == null) return;
 
     emailjs
       .sendForm(
         "service_q6io2ra",
         "template_x97ejgo",
-        form.current,
+        currrentForm,
         "Ber6FSSH9ok11opMa"
       )
       .then(
@@ -56,9 +58,9 @@ export default function Contact() {
               width="500"
               height="450"
               style={{ border: 0 }}
-              allowfullscreen=""
+              allowFullScreen={true}
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>
