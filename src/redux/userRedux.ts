@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { useAuth0 } from "@auth0/auth0-react";
+//import { useAuth0 } from "@auth0/auth0-react";
 
 export const fetchUser = createAsyncThunk("fetchuser", async () => {
   console.log("fetcher called");
-  const { getIdTokenClaims } = useAuth0();
+  /*const { getIdTokenClaims } = useAuth0();
   return await getIdTokenClaims().then((response) => {
     return response;
-  });
+  });*/
 });
 
 export type UserInfo = {
@@ -48,7 +48,7 @@ const userSlice = createSlice({
       console.log(state.user);
     },
   },
-  extraReducers: (builder) => {
+  /*extraReducers: (builder) => {
     builder.addCase(fetchUser.fulfilled, (state, action) => {
       state.user = {
         role: action.payload?.["user/role"][0],
@@ -62,8 +62,8 @@ const userSlice = createSlice({
         sid: action.payload?.sid,
       };
       console.log("fetchUser Succeed");
-    });
-    /*
+    });*/
+  /*
     builder.addCase(fetchUser.rejected, (state, action) => {
       console.log("fetchUser rejected");
     });
@@ -71,7 +71,7 @@ const userSlice = createSlice({
       console.log("fetchUser pending");
     });
     */
-  },
+  //},
 });
 
 export const { addUser } = userSlice.actions;

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
-import { useAuth0 } from "@auth0/auth0-react";
 import { useAppSelector } from "../../redux/store";
 import useStickyPart from "../../hooks/useStickyPart";
 
@@ -9,7 +8,7 @@ export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.user.user);
   const wishlist = useAppSelector((state) => state.wish);
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  //const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const { isSticky } = useStickyPart(200, 750);
 
   return (
@@ -29,7 +28,7 @@ export default function Navbar() {
           <BsTelephone color="grey" />
           <span>030-178456</span>
         </span>
-        <span className="menuItem">
+        {/*<span className="menuItem">
           {isAuthenticated ? (
             <span
               onClick={() =>
@@ -41,12 +40,11 @@ export default function Navbar() {
           ) : (
             <span onClick={() => loginWithRedirect()}>LOGIN</span>
           )}
-        </span>
+          </span>*/}
         {user.role == "admin" && (
           <Link to="/orders" className="menuItem">
             ORDERS
           </Link>
-
         )}
         {cart.cartItems?.length > 0 && (
           <Link to="/cart" className="menuItem">
