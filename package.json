@@ -1,7 +1,6 @@
 {
   "name": "restaurentapp2023",
-  "private": true,
-  "homepage": "https://sabrinabu.github.io/restaurentapp2023",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
