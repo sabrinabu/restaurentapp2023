@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { BsTelephone } from "react-icons/bs";
+import { BiMenu } from "react-icons/bi";
+import { MdCancelPresentation } from "react-icons/md";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppSelector } from "../../redux/store";
 import useStickyPart from "../../hooks/useStickyPart";
+import { useState } from "react";
 
 export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
@@ -11,10 +14,26 @@ export default function Navbar() {
   const wishlist = useAppSelector((state) => state.wish);
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const { isSticky } = useStickyPart(200, 750);
+  const [hideMenu, setHideMenu] = useState(true);
 
   return (
     <div className={isSticky ? "navbar stickyHeader" : "navbar"}>
-      <div className="container">
+      <span className="menuHideIcon">
+        {hideMenu ? (
+          <BiMenu
+            onClick={() => {
+              setHideMenu(false);
+            }}
+          />
+        ) : (
+          <MdCancelPresentation
+            onClick={() => {
+              setHideMenu(true);
+            }}
+          />
+        )}
+      </span>
+      <div className={hideMenu ? "container" : "containerSmallDevice"}>
         <Link to="/" className="menuItem">
           HOME
         </Link>
@@ -46,7 +65,6 @@ export default function Navbar() {
           <Link to="/orders" className="menuItem">
             ORDERS
           </Link>
-
         )}
         {cart.cartItems?.length > 0 && (
           <Link to="/cart" className="menuItem">
