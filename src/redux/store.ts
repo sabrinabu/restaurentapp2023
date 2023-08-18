@@ -14,6 +14,7 @@ import storage from "redux-persist/lib/storage";
 import cartRedux from "./cartRedux";
 import userRedux from "./userRedux";
 import wishlistRedux from "./wishlistRedux";
+import shippingRedux from "./shippingRedux";
 
 const persistConfig = {
   key: "root",
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   cart: cartRedux,
   user: userRedux,
   wish: wishlistRedux,
+  shipping: shippingRedux,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

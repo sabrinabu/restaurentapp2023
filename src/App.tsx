@@ -9,6 +9,9 @@ import { useAppDispatch } from "./redux/store.ts";
 import { Product } from "./pages/product/Product.tsx";
 import Wishlist from "./pages/wishlist/Wishlist.tsx";
 import Contact from "./pages/contact/Contact.tsx";
+import Shipping from "./pages/shipping/Shipping.tsx";
+import PaymentMethod from "./pages/paymentmethod/PaymentMethod.tsx";
+import PlaceOrder from "./pages/placeorder/PlaceOrder.tsx";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -26,6 +29,9 @@ function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/payment" element={<PaymentMethod />} />
+          <Route path="/placeorder" element={<PlaceOrder />} />
         </Routes>
       </BrowserRouter>
     </>

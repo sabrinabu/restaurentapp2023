@@ -4,14 +4,15 @@ import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import { reset } from "../../redux/cartRedux";
 import { useAppSelector, useAppDispatch } from "../../redux/store";
+import { useNavigate } from "react-router-dom";
 import "./cart.scss";
 
 export default function Cart() {
   const cart = useAppSelector((state) => state.cart);
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    alert(
-      "Checkout will be implemented soon, until then you can get everything for free. Happy?"
-    );
+    navigate("/shipping");
   };
 
   const dispatch = useAppDispatch();
