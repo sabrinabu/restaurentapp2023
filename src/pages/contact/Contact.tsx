@@ -66,8 +66,8 @@ export default function Contact() {
           <div className="mapInnerWrapper">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.9389693678945!2d13.516740176466852!3d52.570714932473734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84c5edfb854e3%3A0xed24ca5a7e5b95f2!2sGrevesm%C3%BChlener%20Str.%2051%2C%2013059%20Berlin!5e0!3m2!1sen!2sde!4v1691675841105!5m2!1sen!2sde"
-              width="400"
-              height="440"
+              width="420"
+              height="430"
               style={{ border: 0 }}
               allowFullScreen={true}
               loading="lazy"

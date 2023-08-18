@@ -24,7 +24,6 @@ export default function Product({ product, productType }: productprops) {
   };
 
   // size need to be selectable option later
-
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
