@@ -10,6 +10,8 @@ import {
 import { IncreaseDecrease } from "../increasedecrease/IncreaseDecrease";
 import { useNavigate } from "react-router-dom";
 import { WishItem, addwishlist } from "../../redux/wishlistRedux";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 type cartItemProps = {
   cartItem: CartItem;
@@ -57,7 +59,8 @@ export default function Cartitem({ cartItem }: cartItemProps) {
 
   return (
     <div className="cartitem">
-      <img
+      <LazyLoadImage
+        effect="blur"
         className="img"
         onClick={handleSingleProduct}
         src={cartItem.product.img}

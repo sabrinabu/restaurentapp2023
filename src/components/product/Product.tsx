@@ -6,6 +6,8 @@ import { useAppDispatch } from "../../redux/store";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { WishItem, addwishlist } from "../../redux/wishlistRedux";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 type productprops = {
   product: ProductP;
@@ -58,7 +60,8 @@ export default function Product({ product, productType }: productprops) {
         setShowButton(false);
       }}
     >
-      <img
+      <LazyLoadImage
+        effect="blur"
         className="img"
         onClick={() => handleSingleProduct()}
         src={product.img}

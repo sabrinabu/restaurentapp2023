@@ -90,7 +90,7 @@ export type Product = {
   productType?: string;
 };
 
-type Products = Product[];
+export type Products = Product[];
 
 export const featuredProducts: Products = [
   {

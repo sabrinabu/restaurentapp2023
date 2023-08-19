@@ -8,7 +8,6 @@ import "./wishlist.scss";
 export default function Wishlist() {
   const wishlist = useAppSelector((state) => state.wish);
 
-  console.log(wishlist);
   return (
     <div className="wishlist">
       <Banner />
@@ -16,7 +15,7 @@ export default function Wishlist() {
       <div className="wrapper">
         <div className="wishItems">
           {wishlist.wishItems.map((wishItem) => (
-            <Wishitem wishItem={wishItem}  key={wishItem.id}/>
+            <Wishitem wishItem={wishItem} key={wishItem.id} />
           ))}
         </div>
       </div>
