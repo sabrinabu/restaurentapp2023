@@ -5,6 +5,8 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { useAppDispatch } from "../../redux/store";
 import { CartItem, addProduct } from "../../redux/cartRedux";
 import { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 type wishItemProps = {
   wishItem: WishItem;
@@ -31,7 +33,11 @@ export default function Wishitem({ wishItem }: wishItemProps) {
 
   return (
     <div className="wishitem">
-      <img className="img" src={wishItem.wishproduct.img} />
+      <LazyLoadImage
+        effect="blur"
+        className="img"
+        src={wishItem.wishproduct.img}
+      />
       <span className="title">{wishItem.wishproduct.title}</span>
       <span className="price">{wishItem.wishproduct.price}€</span>
       <button

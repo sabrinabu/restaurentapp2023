@@ -12,7 +12,7 @@ export default function Category() {
   const producttype = location.pathname.split("/")[2];
   const [products, setProducts] = useState<Products>();
 
-  const getCategory = (productType: string) => {
+  /*const getCategory = (productType: string) => {
     if (productType === "pastas") {
       import("../../data").then((module) => {
         setProducts(module.pastas);
@@ -28,6 +28,20 @@ export default function Category() {
         setProducts(module.burgers);
         console.log("burgers loaded");
       });
+    }
+  };*/
+
+  // Async lazy loading
+  const getCategory = async (productType: string) => {
+    if (productType === "pastas") {
+      const pastas = (await import("../../data")).pastas;
+      setProducts(pastas);
+    } else if (productType === "pizzas") {
+      const pizzas = (await import("../../data")).pizzas;
+      setProducts(pizzas);
+    } else if (productType === "burgers") {
+      const burgers = (await import("../../data")).burgers;
+      setProducts(burgers);
     }
   };
 
