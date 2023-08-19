@@ -44,9 +44,10 @@ export default function Wishitem({ wishItem }: wishItemProps) {
         <select
           className="selectSize"
           onChange={(e) => setSize(e.target.value)}
+          defaultValue="M"
         >
           <option>S</option>
-          <option selected>M</option>
+          <option>M</option>
           <option>L</option>
           <option>XL</option>
           <option>XXL</option>
