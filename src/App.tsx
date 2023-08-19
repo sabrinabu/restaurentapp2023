@@ -3,7 +3,6 @@ import { fetchUser } from "./redux/userRedux.ts";
 import { useAppDispatch } from "./redux/store.ts";
 import { Product } from "./pages/product/Product.tsx";
 import { Suspense, lazy } from "react";
-
 const Home = lazy(() => import("./pages/home/Home.tsx"));
 const Menus = lazy(() => import("./pages/menus/Menus.tsx"));
 const Category = lazy(() => import("./pages/products/Products"));
