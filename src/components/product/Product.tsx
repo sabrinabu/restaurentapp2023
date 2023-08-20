@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { WishItem, addwishlist } from "../../redux/wishlistRedux";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useErrorBoundary } from "react-error-boundary";
 
 type productprops = {
   product: ProductP;
@@ -17,6 +18,7 @@ type productprops = {
 export default function Product({ product, productType }: productprops) {
   const [showButton, setShowButton] = useState<boolean>(false);
   const [wished, setWished] = useState<boolean>(false);
+  const { showBoundary } = useErrorBoundary();
 
   const navigate = useNavigate();
   const handleSingleProduct = () => {
@@ -35,7 +37,14 @@ export default function Product({ product, productType }: productprops) {
       size: "M",
       qty: 1,
     };
-    dispatch(addProduct(cartProduct));
+    try {
+      {
+        dispatch(addProduct(cartProduct));
+        //throw new Error("Error Throughed"); this message will come to the error boundary component
+      }
+    } catch (error) {
+      showBoundary(error);
+    }
   };
 
   const handleAddWishlist = () => {
@@ -43,8 +52,12 @@ export default function Product({ product, productType }: productprops) {
       id: "",
       wishproduct: product,
     };
-    dispatch(addwishlist(wishlist));
-    setWished(true);
+    try {
+      dispatch(addwishlist(wishlist));
+      setWished(true);
+    } catch (error) {
+      showBoundary(error);
+    }
   };
 
   return (

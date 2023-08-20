@@ -1,0 +1,23 @@
+.errorboundarycomponent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .centerText {
+    .header {
+      font-size: 50px;
+      color: red;
+      font-weight: 600;
+    }
+    .message {
+      font-size: large;
+      color: gray;
+    }
+    .button {
+      padding: 10px;
+      background-color: rgb(248, 91, 52);
+      color: white;
+      border-style: none;
+      cursor: pointer;
+    }
+  }
+}
