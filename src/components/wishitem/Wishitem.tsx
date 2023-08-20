@@ -7,6 +7,7 @@ import { CartItem, addProduct } from "../../redux/cartRedux";
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useErrorBoundary } from "react-error-boundary";
 
 type wishItemProps = {
   wishItem: WishItem;
@@ -15,9 +16,14 @@ type wishItemProps = {
 export default function Wishitem({ wishItem }: wishItemProps) {
   const [size, setSize] = useState<string>("");
   const dispatch = useAppDispatch();
+  const { showBoundary } = useErrorBoundary();
+
   const handleRemoveClick = (id: string) => {
-    console.log("id");
-    dispatch(removeWishProduct({ id }));
+    try {
+      dispatch(removeWishProduct({ id }));
+    } catch (error) {
+      showBoundary(error);
+    }
   };
 
   const handleAddCart = () => {
@@ -27,8 +33,12 @@ export default function Wishitem({ wishItem }: wishItemProps) {
       size: size,
       qty: 1,
     };
-    dispatch(addProduct(cartProduct));
-    dispatch(removeWishProduct({ id: wishItem.id }));
+    try {
+      dispatch(addProduct(cartProduct));
+      dispatch(removeWishProduct({ id: wishItem.id }));
+    } catch (error) {
+      showBoundary(error);
+    }
   };
 
   return (

@@ -9,12 +9,14 @@ import { CartItem, Size, addProduct } from "../../redux/cartRedux";
 import { useAppDispatch } from "../../redux/store";
 import { useState } from "react";
 import { IncreaseDecrease } from "../../components/increasedecrease/IncreaseDecrease";
+import { useErrorBoundary } from "react-error-boundary";
 
 export const Product = () => {
   const location = useLocation();
   const product: ProductP = location.state.product;
   const [sizeItem, setSizeItem] = useState<string>(Size[Size.L]);
   const [quantity, setQuantity] = useState<number>(1);
+  const { showBoundary } = useErrorBoundary();
 
   const dispatch = useAppDispatch();
 
@@ -25,7 +27,11 @@ export const Product = () => {
       qty: quantity,
       size: sizeItem,
     };
-    dispatch(addProduct(cartProduct));
+    try {
+      dispatch(addProduct(cartProduct));
+    } catch (error) {
+      showBoundary(error);
+    }
   };
 
   const handleSizeChange = (size: Size) => {

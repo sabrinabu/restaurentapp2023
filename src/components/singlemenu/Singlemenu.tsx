@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import "./singlemenu.scss";
 import { Menu } from "../../data";
-import ErrorBoundary from "../errorboundary/ErrorBoundary";
 
 type singleMenu = {
   data: Menu;
@@ -21,7 +20,6 @@ export default function Singlemenu({ data }: singleMenu) {
         >
           {data.title}
         </span>
-
         <span className={data.title === "Juicy Burgers" ? "descblack" : "desc"}>
           {data.desc}
         </span>

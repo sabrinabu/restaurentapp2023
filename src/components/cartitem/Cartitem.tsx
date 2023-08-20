@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { WishItem, addwishlist } from "../../redux/wishlistRedux";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useErrorBoundary } from "react-error-boundary";
 
 type cartItemProps = {
   cartItem: CartItem;
@@ -19,17 +20,26 @@ type cartItemProps = {
 
 export default function Cartitem({ cartItem }: cartItemProps) {
   const dispatch = useDispatch();
+  const { showBoundary } = useErrorBoundary();
 
   const handleRemoveClick = (
     cartItemId: string,
     qty: number,
     price: number
   ) => {
-    dispatch(removeProduct({ cartItemId, qty, price }));
+    try {
+      dispatch(removeProduct({ cartItemId, qty, price }));
+    } catch (error) {
+      showBoundary(error);
+    }
   };
 
   const handleQuantityChange = (operation: string, cartItemId: string) => {
-    dispatch(adjustQuantities({ operation, cartItemId }));
+    try {
+      dispatch(adjustQuantities({ operation, cartItemId }));
+    } catch (error) {
+      showBoundary(error);
+    }
   };
 
   const handleAddWishBtn = () => {
@@ -37,14 +47,18 @@ export default function Cartitem({ cartItem }: cartItemProps) {
       id: "",
       wishproduct: cartItem.product,
     };
-    dispatch(addwishlist(wishItem));
-    dispatch(
-      removeProduct({
-        cartItemId: cartItem.id,
-        qty: cartItem.qty,
-        price: cartItem.product.price,
-      })
-    );
+    try {
+      dispatch(addwishlist(wishItem));
+      dispatch(
+        removeProduct({
+          cartItemId: cartItem.id,
+          qty: cartItem.qty,
+          price: cartItem.product.price,
+        })
+      );
+    } catch (error) {
+      showBoundary(error);
+    }
   };
 
   const navigate = useNavigate();
