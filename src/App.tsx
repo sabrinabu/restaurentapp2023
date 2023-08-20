@@ -3,6 +3,7 @@ import { fetchUser } from "./redux/userRedux.ts";
 import { useAppDispatch } from "./redux/store.ts";
 import { Product } from "./pages/product/Product.tsx";
 import { Suspense, lazy } from "react";
+import LoadingSpinner from "./components/loadingspinner/LoadingSpinner.tsx";
 const Home = lazy(() => import("./pages/home/Home.tsx"));
 const Menus = lazy(() => import("./pages/menus/Menus.tsx"));
 const Category = lazy(() => import("./pages/products/Products"));
@@ -22,7 +23,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Home />
               </Suspense>
             }
@@ -30,7 +31,7 @@ function App() {
           <Route
             path="/menu"
             element={
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Menus />
               </Suspense>
             }
@@ -38,7 +39,7 @@ function App() {
           <Route
             path="/menu/:category"
             element={
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Category />
               </Suspense>
             }
@@ -46,7 +47,7 @@ function App() {
           <Route
             path="/menu/:category/:id"
             element={
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Product />
               </Suspense>
             }
@@ -54,7 +55,7 @@ function App() {
           <Route
             path="/cart"
             element={
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Cart />
               </Suspense>
             }
@@ -62,7 +63,7 @@ function App() {
           <Route
             path="/orders"
             element={
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Orders />
               </Suspense>
             }
@@ -70,7 +71,7 @@ function App() {
           <Route
             path="/wishlist"
             element={
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Wishlist />
               </Suspense>
             }
@@ -78,7 +79,7 @@ function App() {
           <Route
             path="/contact"
             element={
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Contact />
               </Suspense>
             }

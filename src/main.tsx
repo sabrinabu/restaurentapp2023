@@ -5,10 +5,11 @@ import { persistor } from "./redux/store.ts";
 import { PersistGate } from "redux-persist/integration/react";
 import { Auth0Provider } from "@auth0/auth0-react";
 import App from "./App.tsx";
+import LoadingSpinner from "./components/loadingspinner/LoadingSpinner.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+    <PersistGate loading={<LoadingSpinner />} persistor={persistor}>
       <Auth0Provider
         domain="dev-anjhdt3eqq4esrg8.us.auth0.com"
         clientId="kouTp4gb0DS3qrNYFo7LBq15CwNeMWZf"
