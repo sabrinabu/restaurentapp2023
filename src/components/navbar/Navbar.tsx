@@ -8,8 +8,6 @@ import { useAppSelector } from "../../redux/store";
 import useStickyPart from "../../hooks/useStickyPart";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import { setLanaguageselection } from "../../redux/utilityRedux";
 
 export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
@@ -18,25 +16,7 @@ export default function Navbar() {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const { isSticky } = useStickyPart(200, 750);
   const [hideMenu, setHideMenu] = useState(true);
-  const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState("en");
-  const dispatch = useDispatch();
-
-  const handleLanguageSelect = (selectedLanguage: string) => {
-    if (selectedLanguage == "en") {
-      i18n.changeLanguage("en-US");
-      dispatch(setLanaguageselection(selectedLanguage));
-      setLanguage(selectedLanguage);
-    } else if (selectedLanguage == "de") {
-      i18n.changeLanguage("de-DE");
-      dispatch(setLanaguageselection(selectedLanguage));
-      setLanguage(selectedLanguage);
-    } else if (selectedLanguage == "bd") {
-      i18n.changeLanguage("bd-BD");
-      dispatch(setLanaguageselection(selectedLanguage));
-      setLanguage(selectedLanguage);
-    }
-  };
+  const { t } = useTranslation();
 
   return (
     <div className={isSticky ? "navbar stickyHeader" : "navbar"}>
@@ -56,15 +36,6 @@ export default function Navbar() {
         )}
       </span>
       <div className={hideMenu ? "container" : "containerSmallDevice"}>
-        <select
-          className="menuItem"
-          value={language}
-          onChange={(e) => handleLanguageSelect(e.target.value)}
-        >
-          <option value="en">en</option>
-          <option value="de">de</option>
-          <option value="bd">bd</option>
-        </select>
         <Link to="/" className="menuItem">
           {t("home")}
         </Link>
@@ -86,7 +57,7 @@ export default function Navbar() {
                 logout({ logoutParams: { returnTo: window.location.origin } })
               }
             >
-              Hi {user?.nickname}, Logout?
+              {t("loggedin_first")} {user?.nickname}, {t("loggedin_last")}?
             </span>
           ) : (
             <span onClick={() => loginWithRedirect()}>{t("login")}</span>

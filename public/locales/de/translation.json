@@ -1,11 +1,13 @@
 {
     "announcement":"Kostenlose Lieferung für alle Bestellungen über 50€. Bestellen Sie Ihr Essen jetzt!",
 
-    "home": "HOME",
+    "home": "STARTSEITE",
     "menu": "MENÜ",
     "contact": "KONTACT",
     "restaurent": "Gaststätte",
     "login": "LOGIN",
+    "loggedin_first": "HALLO",
+    "loggedin_last": "LOGOUT",
     "orders": "BESTELLUNGEN",
     "cart": "KART",
     "wish": "WÜNSCH"

@@ -6,6 +6,8 @@
     "contact": "CONTACT",
     "restaurent": "RESTAURENT",
     "login": "LOGIN",
+    "loggedin_first": "HI",
+    "loggedin_last": "LOGOUT",
     "orders": "ORDERS",
     "cart": "CART",
     "wish": "WISH"
