@@ -18,6 +18,10 @@
       color: white;
       border-style: none;
       cursor: pointer;
+      &:hover {
+        background-color: rgb(163, 116, 105);
+        color: greenyellow;
+      }
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+    "announcement":"Free Delivery for all orders over 50€. Order your food now!",
+
+    "home": "HOME",
+    "menu": "MENU",
+    "contact": "CONTACT",
+    "restaurent": "RESTAURENT",
+    "login": "LOGIN",
+    "loggedin_first": "HI",
+    "loggedin_last": "LOGOUT",
+    "orders": "ORDERS",
+    "cart": "CART",
+    "wish": "WISH"
+}

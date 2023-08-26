@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useAppSelector } from "../../redux/store";
 import useStickyPart from "../../hooks/useStickyPart";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
@@ -15,6 +16,7 @@ export default function Navbar() {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const { isSticky } = useStickyPart(200, 750);
   const [hideMenu, setHideMenu] = useState(true);
+  const { t } = useTranslation();
 
   return (
     <div className={isSticky ? "navbar stickyHeader" : "navbar"}>
@@ -35,15 +37,15 @@ export default function Navbar() {
       </span>
       <div className={hideMenu ? "container" : "containerSmallDevice"}>
         <Link to="/" className="menuItem">
-          HOME
+          {t("home")}
         </Link>
         <Link className="menuItem" to="/menu">
-          MENU
+          {t("menu")}
         </Link>
-        <Link to="/contact" className="menuItem">
-          CONTACT
+        <Link className="menuItem" to="/contact">
+          {t("contact")}
         </Link>
-        <span className="menuTitle">RESTAURENT</span>
+        <span className="menuTitle">{t("restaurent")}</span>
         <span className="menuPhone">
           <BsTelephone color="grey" />
           <span>030-178456</span>
@@ -55,26 +57,25 @@ export default function Navbar() {
                 logout({ logoutParams: { returnTo: window.location.origin } })
               }
             >
-              Hi {user?.nickname}, Logout?
+              {t("loggedin_first")} {user?.nickname}, {t("loggedin_last")}?
             </span>
           ) : (
-            <span onClick={() => loginWithRedirect()}>LOGIN</span>
+            <span onClick={() => loginWithRedirect()}>{t("login")}</span>
           )}
         </span>
         {user.role == "admin" && (
           <Link to="/orders" className="menuItem">
-            ORDERS
+            {t("orders")}
           </Link>
         )}
         {cart.cartItems?.length > 0 && (
           <Link to="/cart" className="menuItem">
-            CART({cart.cartItems?.length})
+            {t("cart")}({cart.cartItems?.length})
           </Link>
         )}
-
         {wishlist.wishItems?.length > 0 && (
           <Link to="/wishlist" className="menuItem">
-            WISH({wishlist.wishItems?.length})
+            {t("wish")}({wishlist.wishItems?.length})
           </Link>
         )}
       </div>
