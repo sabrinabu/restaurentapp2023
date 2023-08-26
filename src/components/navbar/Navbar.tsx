@@ -56,26 +56,25 @@ export default function Navbar() {
         )}
       </span>
       <div className={hideMenu ? "container" : "containerSmallDevice"}>
-        <span className="selectLanguage">
-          <select
-            value={language}
-            onChange={(e) => handleLanguageSelect(e.target.value)}
-          >
-            <option value="en">en</option>
-            <option value="de">de</option>
-            <option value="bd">bd</option>
-          </select>
-        </span>
+        <select
+          className="menuItem"
+          value={language}
+          onChange={(e) => handleLanguageSelect(e.target.value)}
+        >
+          <option value="en">en</option>
+          <option value="de">de</option>
+          <option value="bd">bd</option>
+        </select>
         <Link to="/" className="menuItem">
           {t("home")}
         </Link>
         <Link className="menuItem" to="/menu">
-          MENU
+          {t("menu")}
         </Link>
-        <Link to="/contact" className="menuItem">
-          CONTACT
+        <Link className="menuItem" to="/contact">
+          {t("contact")}
         </Link>
-        <span className="menuTitle">RESTAURENT</span>
+        <span className="menuTitle">{t("restaurent")}</span>
         <span className="menuPhone">
           <BsTelephone color="grey" />
           <span>030-178456</span>
@@ -90,23 +89,22 @@ export default function Navbar() {
               Hi {user?.nickname}, Logout?
             </span>
           ) : (
-            <span onClick={() => loginWithRedirect()}>LOGIN</span>
+            <span onClick={() => loginWithRedirect()}>{t("login")}</span>
           )}
         </span>
         {user.role == "admin" && (
           <Link to="/orders" className="menuItem">
-            ORDERS
+            {t("orders")}
           </Link>
         )}
         {cart.cartItems?.length > 0 && (
           <Link to="/cart" className="menuItem">
-            CART({cart.cartItems?.length})
+            {t("cart")}({cart.cartItems?.length})
           </Link>
         )}
-
         {wishlist.wishItems?.length > 0 && (
           <Link to="/wishlist" className="menuItem">
-            WISH({wishlist.wishItems?.length})
+            {t("wish")}({wishlist.wishItems?.length})
           </Link>
         )}
       </div>
