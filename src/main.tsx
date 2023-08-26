@@ -8,6 +8,7 @@ import App from "./App.tsx";
 import LoadingSpinner from "./components/loadingspinner/LoadingSpinner.tsx";
 import { ErrorBoundary } from "react-error-boundary";
 import { ProductsFetchingError } from "./components/errors/ErrorBoundaryComponent.tsx";
+import "./i18next.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>

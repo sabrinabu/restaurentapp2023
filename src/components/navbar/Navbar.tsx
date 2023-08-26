@@ -7,6 +7,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useAppSelector } from "../../redux/store";
 import useStickyPart from "../../hooks/useStickyPart";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { setLanaguageselection } from "../../redux/utilityRedux";
 
 export default function Navbar() {
   const cart = useAppSelector((state) => state.cart);
@@ -15,6 +18,25 @@ export default function Navbar() {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const { isSticky } = useStickyPart(200, 750);
   const [hideMenu, setHideMenu] = useState(true);
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState("en");
+  const dispatch = useDispatch();
+
+  const handleLanguageSelect = (selectedLanguage: string) => {
+    if (selectedLanguage == "en") {
+      i18n.changeLanguage("en-US");
+      dispatch(setLanaguageselection(selectedLanguage));
+      setLanguage(selectedLanguage);
+    } else if (selectedLanguage == "de") {
+      i18n.changeLanguage("de-DE");
+      dispatch(setLanaguageselection(selectedLanguage));
+      setLanguage(selectedLanguage);
+    } else if (selectedLanguage == "bd") {
+      i18n.changeLanguage("bd-BD");
+      dispatch(setLanaguageselection(selectedLanguage));
+      setLanguage(selectedLanguage);
+    }
+  };
 
   return (
     <div className={isSticky ? "navbar stickyHeader" : "navbar"}>
@@ -34,8 +56,18 @@ export default function Navbar() {
         )}
       </span>
       <div className={hideMenu ? "container" : "containerSmallDevice"}>
+        <span className="selectLanguage">
+          <select
+            value={language}
+            onChange={(e) => handleLanguageSelect(e.target.value)}
+          >
+            <option value="en">en</option>
+            <option value="de">de</option>
+            <option value="bd">bd</option>
+          </select>
+        </span>
         <Link to="/" className="menuItem">
-          HOME
+          {t("home")}
         </Link>
         <Link className="menuItem" to="/menu">
           MENU
