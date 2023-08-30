@@ -7,10 +7,9 @@ import "./placeorder.scss";
 
 export default function PlaceOrder() {
   const shipping = useAppSelector((state) => state.shipping);
-  console.log(shipping);
-  const mappingItem = shipping.shippingItems[shipping.shippingItems.length - 1];
-  console.log(shipping.shippingItems[shipping.shippingItems.length - 1]);
   const cart = useAppSelector((state) => state.cart);
+  console.log(cart);
+
   return (
     <div>
       <Banner />
@@ -18,23 +17,55 @@ export default function PlaceOrder() {
       <div>
         <Checkout step1 step2 step3></Checkout>
 
-        <div className="col-2">
-          <ul>
-            <li>
-              <div className="card card-body">
-                <h2>Shipping</h2>
-                <p>{mappingItem.fullName}</p>
-              </div>
-            </li>
-            <li>
-              <div className="card card-body">
-                <h2>Payment</h2>
+        <div className="placeorder">
+          <div className="left">
+          <div className="body">
+            <h2>Shipping</h2>
+            {shipping.shippingItems.map((item) => (
+              <>
                 <p>
-                  <strong>Method:</strong> paypal
+                  <strong> name:</strong>
+                  {item.fullName}
                 </p>
+                <p>
+                  <strong> Address:</strong>
+                  {item.address} {item.city} {item.postalCode} {item.country}
+                </p>
+              </>
+            ))}
+          </div>
+          <div className="secondbody">
+            <strong className="payment">Payment</strong>
+            <strong className="method">Method: paypal</strong>
+          </div>
+          <div className="thirdbody">
+            <div className="orderitem">
+              <strong>Order Items</strong>
+              <div className="details">
+                {cart.cartItems.map((item) => (
+                  <div className="detailsmore">
+                    <img className="img" src={item.product.img} />
+                    <span className="title">{item.product.title}</span>
+                    <span className="all">
+                      {item.qty} *
+                      {item.product.price}
+                    </span>
+                  </div>
+                ))}
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
+          </div>
+         
+          <div className="right">
+            <div className="rightdetail">
+            <strong>Total:   {cart.total}</strong>
+            <strong>shipping:  0 </strong>
+            <strong>Tax:  </strong>
+            </div>
+          
+
+          </div>
         </div>
       </div>
       <Footer />

@@ -13,6 +13,7 @@ import Shipping from "./pages/shipping/Shipping.tsx";
 import PaymentMethod from "./pages/paymentmethod/PaymentMethod.tsx";
 import PlaceOrder from "./pages/placeorder/PlaceOrder.tsx";
 
+
 function App() {
   const dispatch = useAppDispatch();
   dispatch(fetchUser());
